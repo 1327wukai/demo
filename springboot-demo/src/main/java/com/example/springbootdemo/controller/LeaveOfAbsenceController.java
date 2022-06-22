@@ -21,9 +21,9 @@ public class LeaveOfAbsenceController {
     /**
      * 查询请假列表
      */
-    @GetMapping("/AllLeaveOfAbsenceList")
+    @GetMapping("/allLeaveOfAbsenceList")
     @ApiOperation("所有请假列表")
-    public List<LeaveOfAbsence> list() {
+    public List<LeaveOfAbsence> selectLeaveOfAbsenceList() {
         List<LeaveOfAbsence> list = leaveOfAbsenceService.selectLeaveOfAbsenceList(new LeaveOfAbsence());
         return list;
     }
@@ -32,9 +32,9 @@ public class LeaveOfAbsenceController {
      * 获取请假详细信息
      */
 
-    @GetMapping("/getLeaveInfo/{leaveId}")
+    @GetMapping("/selectLeaveOfAbsenceByLeaveId/{leaveId}")
     @ApiOperation("按id获取请假信息")
-    public LeaveOfAbsence getLeaveInfo(@PathVariable Integer leaveId) {
+    public LeaveOfAbsence selectLeaveOfAbsenceByLeaveId(@PathVariable Integer leaveId) {
         LeaveOfAbsence leaveOfAbsence = new LeaveOfAbsence();
         leaveOfAbsence.setLeaveId(Integer.valueOf(leaveId));
         List<LeaveOfAbsence> list = this.leaveOfAbsenceService.selectLeaveOfAbsenceByLeaveId(leaveId);
@@ -44,9 +44,9 @@ public class LeaveOfAbsenceController {
     /**
      * 新增请假
      */
-    @PostMapping("/addLeave")
+    @PostMapping("/insertLeaveOfAbsence")
     @ApiOperation("新增请假")
-    public String addLeave(@RequestBody LeaveOfAbsence leaveofabsence) {
+    public String insertLeaveOfAbsence(@RequestBody LeaveOfAbsence leaveofabsence) {
         this.leaveOfAbsenceService.insertLeaveOfAbsence(leaveofabsence);
         return "success";
     }
@@ -54,9 +54,9 @@ public class LeaveOfAbsenceController {
     /**
      * 修改请假
      */
-    @PutMapping("/editLeave")
+    @PutMapping("/updateLeaveOfAbsence")
     @ApiOperation("修改请假")
-    public String editLeave(@RequestBody LeaveOfAbsence leaveofabsence) {
+    public String updateLeaveOfAbsence(@RequestBody LeaveOfAbsence leaveofabsence) {
         this.leaveOfAbsenceService.updateLeaveOfAbsence(leaveofabsence);
         return "success";
     }
@@ -64,9 +64,9 @@ public class LeaveOfAbsenceController {
     /**
      * 删除请假
      */
-    @DeleteMapping("/deleteLeave/{leaveId}")
+    @DeleteMapping("/deleteLeaveOfAbsenceByLeaveId/{leaveId}")
     @ApiOperation("按id删除请假")
-    public String deleteLeave(@PathVariable Integer leaveId) {
+    public String deleteLeaveOfAbsenceByLeaveId(@PathVariable Integer leaveId) {
         this.leaveOfAbsenceService.deleteLeaveOfAbsenceByLeaveId(Integer.valueOf(leaveId));
         return "success";
     }

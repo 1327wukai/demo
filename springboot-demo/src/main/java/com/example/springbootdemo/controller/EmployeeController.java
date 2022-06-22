@@ -21,9 +21,9 @@ public class EmployeeController {
     /**
      * 查询员工列表
      */
-    @GetMapping("/AllEmployeeList")
+    @GetMapping("/allEmployeeList")
     @ApiOperation("所有员工列表")
-    public List<Employee> list()
+    public List<Employee> selectEmployeeList()
     {
         List<Employee> list = employeeService.selectEmployeeList(new Employee());
         return list;
@@ -33,9 +33,9 @@ public class EmployeeController {
     /**
      * 获取员工详细信息
      */
-    @GetMapping("/getEmployeeInfo/{empNo}")
+    @GetMapping("/selectEmployeeByEmpNo/{empNo}")
     @ApiOperation("按id获取员工详细信息")
-    public Employee getEmployeeInfo(@PathVariable Integer empNo)
+    public Employee selectEmployeeByEmpNo(@PathVariable Integer empNo)
     {
         Employee employee = new Employee();
         employee.setEmpNo(Integer.valueOf(empNo));
@@ -47,9 +47,9 @@ public class EmployeeController {
     /**
      * 新增员工
      */
-    @PostMapping("/addEmployee")
+    @PostMapping("/insertEmployee")
     @ApiOperation("新增员工")
-    public String addEmployee(@RequestBody Employee employee)
+    public String insertEmployee(@RequestBody Employee employee)
     {
         this.employeeService.insertEmployee(employee);
         return "success";
@@ -58,9 +58,9 @@ public class EmployeeController {
     /**
      * 修改员工
      */
-    @PutMapping("/editEmployee")
+    @PutMapping("/updateEmployee")
     @ApiOperation("修改员工")
-    public String editEmployee(@RequestBody Employee employee)
+    public String updateEmployee(@RequestBody Employee employee)
     {
         this.employeeService.updateEmployee(employee);
         return "success";
@@ -69,9 +69,9 @@ public class EmployeeController {
     /**
      * 删除员工
      */
-    @DeleteMapping("/deleteEmployee/{empNo}")
+    @DeleteMapping("/deleteEmployeeByEmpNo/{empNo}")
     @ApiOperation("删除员工")
-    public String delete(@PathVariable Integer empNo)
+    public String deleteEmployeeByEmpNo(@PathVariable Integer empNo)
     {
         this.employeeService.deleteEmployeeByEmpNo(Integer.valueOf(empNo));
         return "success";

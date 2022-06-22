@@ -21,9 +21,9 @@ public class NoticeController {
     /**
      * 查询公告列表
      */
-    @GetMapping("/AllNoticeList")
+    @GetMapping("/allNoticeList")
     @ApiOperation("所有公告列表")
-    public List<Notice> list() {
+    public List<Notice> selectNoticeList() {
         List<Notice> list = noticeService.selectNoticeList(new Notice());
         return list;
     }
@@ -31,20 +31,21 @@ public class NoticeController {
     /**
      * 获取公告详细信息
      */
-    @GetMapping("/getNoticeInfo/{noticeId}")
+    @GetMapping("/selectNoticeByNoticeId/{noticeId}")
     @ApiOperation("获取公告详细信息")
-    public Notice getNoticeInfo(@PathVariable Integer noticeId) {
+    public Notice selectNoticeByNoticeId(@PathVariable Integer noticeId) {
         Notice notice = new Notice();
         notice.setNoticeId(Integer.valueOf(noticeId));
-        return list().get(0);
+        List<Notice> list=noticeService.selectNoticeByNoticeId(noticeId);
+        return list.get(0);
     }
 
     /**
      * 新增公告
      */
-    @PostMapping("/addNotice")
+    @PostMapping("/insertNotice")
     @ApiOperation("新增公告")
-    public String addNotice(@RequestBody Notice notice) {
+    public String insertNotice(@RequestBody Notice notice) {
         this.noticeService.insertNotice(notice);
         return "success";
     }
@@ -52,9 +53,9 @@ public class NoticeController {
     /**
      * 修改公告
      */
-    @PutMapping("/editNotice")
+    @PutMapping("/updateNotice")
     @ApiOperation("修改公告")
-    public String editNotice(@RequestBody Notice notice) {
+    public String updateNotice(@RequestBody Notice notice) {
         this.noticeService.updateNotice(notice);
         return "success";
     }
@@ -62,9 +63,9 @@ public class NoticeController {
     /**
      * 删除公告
      */
-    @DeleteMapping("/deleteNotice/{noticeId}")
+    @DeleteMapping("/deleteNoticeByNoticeId/{noticeId}")
     @ApiOperation("删除公告")
-    public String deleteNotice(@PathVariable Integer noticeId) {
+    public String deleteNoticeByNoticeId(@PathVariable Integer noticeId) {
         this.noticeService.deleteNoticeByNoticeId(Integer.valueOf(noticeId));
         return "success";
     }

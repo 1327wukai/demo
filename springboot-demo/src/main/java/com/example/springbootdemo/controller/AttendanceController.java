@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 @Api(tags = "考勤管理")
-@RequestMapping("/oa/attendance")
+@RequestMapping("/oa/Attendance")
 public class AttendanceController {
 
     @Autowired
@@ -21,18 +21,18 @@ public class AttendanceController {
     /**
      * 查询考勤
      */
-    @GetMapping("/AllAttendanceList")
+    @GetMapping("/allAttendanceList")
     @ApiOperation("所有考勤信息")
-    public List<Attendance> AttendanceList(){
+    public List<Attendance> selectAttendanceList(){
         List<Attendance> list=attendanceService.selectAttendanceList(new Attendance());
         return list;
     }
     /**
      * 按id查询考勤
      */
-    @GetMapping("/attendanceQueryById/{attendEmpNo}")
+    @GetMapping("/selectAttendanceByAttendEmpNo/{attendEmpNo}")
     @ApiOperation("按id查询考勤")
-    public Attendance attendanceQueryById(@PathVariable Integer attendEmpNo) {
+    public Attendance selectAttendanceByAttendEmpNo(@PathVariable Integer attendEmpNo) {
         Attendance attendance = new Attendance();
         attendance.setAttendEmpNo(Integer.valueOf(attendEmpNo));
         List<Attendance> list = this.attendanceService.selectAttendanceByAttendEmpNo(attendEmpNo);
@@ -41,9 +41,9 @@ public class AttendanceController {
     /**
      * 新增考勤
      */
-    @PostMapping("/addAttendance")
+    @PostMapping("/insertAttendance")
     @ApiOperation("新增考勤")
-    public String addAttendance(@RequestBody Attendance attendance)
+    public String insertAttendance(@RequestBody Attendance attendance)
     {
         this.attendanceService.insertAttendance(attendance);
         return "success";
@@ -52,9 +52,9 @@ public class AttendanceController {
     /**
      * 修改考勤
      */
-    @PutMapping("/editAttendance")
+    @PutMapping("/updateAttendance")
     @ApiOperation("修改考勤")
-    public String editAttendance(@RequestBody Attendance attendance)
+    public String updateAttendance(@RequestBody Attendance attendance)
     {
         this.attendanceService.updateAttendance(attendance);
         return "success";
@@ -63,9 +63,9 @@ public class AttendanceController {
     /**
      * 删除考勤
      */
-    @DeleteMapping("/deleteAttendance/{attendEmpNo}")
+    @DeleteMapping("/deleteAttendanceByAttendEmpNo/{attendEmpNo}")
     @ApiOperation("按id删除考勤")
-    public String deleteAttendance(@PathVariable Integer attendEmpNo)
+    public String deleteAttendanceByAttendEmpNo(@PathVariable Integer attendEmpNo)
     {
         this.attendanceService.deleteAttendanceByAttendEmpNo(Integer.valueOf(attendEmpNo));
         return "success";

@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 @Api(tags = "部门管理")
-@RequestMapping("/oa/department")
+@RequestMapping("/oa/Department")
 public class DepartmentController {
 
     @Autowired
@@ -21,9 +21,9 @@ public class DepartmentController {
     /**
      * 查询部门列表
      */
-    @GetMapping("/AllDepartmentList")
+    @GetMapping("/allDepartmentList")
     @ApiOperation("所有部门列表")
-    public List<Department> deptList() {
+    public List<Department> selectDepartmentList() {
         List<Department> list = departmentService.selectDepartmentList(new Department());
         return list;
     }
@@ -31,9 +31,9 @@ public class DepartmentController {
     /**
      * id查询部门列表
      */
-    @GetMapping("/deptById/{deptNo}")
+    @GetMapping("/selectDepartmentByDeptNo/{deptNo}")
     @ApiOperation("id查询部门列表")
-    public Department deptById(@PathVariable Integer deptNo) {
+    public Department selectDepartmentByDeptNo(@PathVariable Integer deptNo) {
         Department department = new Department();
         department.setDeptNo(Integer.valueOf(deptNo));
         List<Department> list = this.departmentService.selectDepartmentByDeptNo(deptNo);
@@ -42,9 +42,9 @@ public class DepartmentController {
     /**
      * 新增部门
      */
-    @PostMapping("/addDept")
+    @PostMapping("/insertDepartment")
     @ApiOperation("新增部门")
-    public String addDept(@RequestBody Department department) {
+    public String insertDepartment(@RequestBody Department department) {
         this.departmentService.insertDepartment(department);
         return "success";
     }
@@ -52,9 +52,9 @@ public class DepartmentController {
     /**
      * 修改部门
      */
-    @PutMapping("/editDept")
+    @PutMapping("/updateDepartment")
     @ApiOperation("修改部门")
-    public String editDept(@RequestBody Department department) {
+    public String updateDepartment(@RequestBody Department department) {
         this.departmentService.updateDepartment(department);
         return "success";
     }
@@ -62,9 +62,9 @@ public class DepartmentController {
     /**
      * 删除部门
      */
-    @DeleteMapping("/deleteDept/{deptNo}")
+    @DeleteMapping("/deleteDepartmentByDeptNo/{deptNo}")
     @ApiOperation("按id删除部门")
-    public String deleteDept(@PathVariable Integer deptNo) {
+    public String deleteDepartmentByDeptNo(@PathVariable Integer deptNo) {
         this.departmentService.deleteDepartmentByDeptNo(Integer.valueOf(deptNo));
         return "success";
     }
