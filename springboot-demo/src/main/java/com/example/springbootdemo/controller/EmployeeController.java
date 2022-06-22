@@ -21,7 +21,7 @@ public class EmployeeController {
     /**
      * 查询员工列表
      */
-    @GetMapping("/list")
+    @GetMapping("/AllEmployeeList")
     @ApiOperation("所有员工列表")
     public List<Employee> list()
     {
@@ -40,7 +40,8 @@ public class EmployeeController {
         Employee employee = new Employee();
         employee.setEmpNo(Integer.valueOf(empNo));
         List<Employee> list = this.employeeService.selectEmployeeByEmpNo(empNo);
-        return list.get(0);
+            return list.get(0);
+
     }
 
     /**

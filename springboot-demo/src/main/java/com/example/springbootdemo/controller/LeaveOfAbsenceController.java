@@ -21,7 +21,7 @@ public class LeaveOfAbsenceController {
     /**
      * 查询请假列表
      */
-    @GetMapping("/list")
+    @GetMapping("/AllLeaveOfAbsenceList")
     @ApiOperation("所有请假列表")
     public List<LeaveOfAbsence> list() {
         List<LeaveOfAbsence> list = leaveOfAbsenceService.selectLeaveOfAbsenceList(new LeaveOfAbsence());

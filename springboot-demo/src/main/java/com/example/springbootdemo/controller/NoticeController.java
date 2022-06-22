@@ -21,7 +21,7 @@ public class NoticeController {
     /**
      * 查询公告列表
      */
-    @GetMapping("/list")
+    @GetMapping("/AllNoticeList")
     @ApiOperation("所有公告列表")
     public List<Notice> list() {
         List<Notice> list = noticeService.selectNoticeList(new Notice());

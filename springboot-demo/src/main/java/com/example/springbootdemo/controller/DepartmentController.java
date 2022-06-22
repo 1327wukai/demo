@@ -21,7 +21,7 @@ public class DepartmentController {
     /**
      * 查询部门列表
      */
-    @GetMapping("/deptList")
+    @GetMapping("/AllDepartmentList")
     @ApiOperation("所有部门列表")
     public List<Department> deptList() {
         List<Department> list = departmentService.selectDepartmentList(new Department());

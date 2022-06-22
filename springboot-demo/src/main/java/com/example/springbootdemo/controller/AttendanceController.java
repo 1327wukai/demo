@@ -21,7 +21,7 @@ public class AttendanceController {
     /**
      * 查询考勤
      */
-    @GetMapping("/attendanceList")
+    @GetMapping("/AllAttendanceList")
     @ApiOperation("所有考勤信息")
     public List<Attendance> AttendanceList(){
         List<Attendance> list=attendanceService.selectAttendanceList(new Attendance());
@@ -63,7 +63,7 @@ public class AttendanceController {
     /**
      * 删除考勤
      */
-    @DeleteMapping("/deleteAttendance{attendEmpNo}")
+    @DeleteMapping("/deleteAttendance/{attendEmpNo}")
     @ApiOperation("按id删除考勤")
     public String deleteAttendance(@PathVariable Integer attendEmpNo)
     {
