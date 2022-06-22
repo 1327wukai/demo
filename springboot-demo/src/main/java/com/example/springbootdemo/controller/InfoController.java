@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 @RestController
-@Api(tags = "登录与修改信息")
+@Api(tags = "登录与注册")
 @RequestMapping("/oa/Info")
 public class InfoController {
 
