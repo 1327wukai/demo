@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.springbootdemo.dao.NoticeDao">
+
+    <resultMap type="Notice" id="NoticeResult">
+        <result property="noticeId" column="noticeId"/>
+        <result property="userId" column="userId"/>
+        <result property="noticeTopic" column="noticeTopic"/>
+        <result property="noticeContent" column="noticeContent"/>
+        <result property="noticeTime" column="noticeTime"/>
+        <result property="noticePublisher" column="noticePublisher"/>
+    </resultMap>
+
+    <sql id="selectNoticeVo">
+        select noticeId, userId, noticeTopic, noticeContent, noticeTime, noticePublisher
+        from tb_notice
+    </sql>
+
+    <select id="selectNoticeList" parameterType="Notice" resultMap="NoticeResult">
+        <include refid="selectNoticeVo"/>
+        <where>
+            <if test="userId != null ">and userId = #{userId}</if>
+            <if test="noticeTopic != null  and noticeTopic != ''">and noticeTopic = #{noticeTopic}</if>
+            <if test="noticeContent != null  and noticeContent != ''">and noticeContent = #{noticeContent}</if>
+            <if test="noticeTime != null ">and noticeTime = #{noticeTime}</if>
+            <if test="noticePublisher != null  and noticePublisher != ''">and noticePublisher = #{noticePublisher}</if>
+        </where>
+    </select>
+
+    <select id="selectNoticeByNoticeId" parameterType="Integer" resultMap="NoticeResult">
+        <include refid="selectNoticeVo"/>
+        where noticeId = #{noticeId}
+    </select>
+
+    <insert id="insertNotice" parameterType="Notice">
+        insert into tb_notice
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="noticeId != null">noticeId,</if>
+            <if test="userId != null">userId,</if>
+            <if test="noticeTopic != null and noticeTopic != ''">noticeTopic,</if>
+            <if test="noticeContent != null and noticeContent != ''">noticeContent,</if>
+            <if test="noticeTime != null">noticeTime,</if>
+            <if test="noticePublisher != null and noticePublisher != ''">noticePublisher,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="noticeId != null">#{noticeId},</if>
+            <if test="userId != null">#{userId},</if>
+            <if test="noticeTopic != null and noticeTopic != ''">#{noticeTopic},</if>
+            <if test="noticeContent != null and noticeContent != ''">#{noticeContent},</if>
+            <if test="noticeTime != null">#{noticeTime},</if>
+            <if test="noticePublisher != null and noticePublisher != ''">#{noticePublisher},</if>
+        </trim>
+    </insert>
+
+    <update id="updateNotice" parameterType="Notice">
+        update tb_notice
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="userId != null">userId = #{userId},</if>
+            <if test="noticeTopic != null and noticeTopic != ''">noticeTopic = #{noticeTopic},</if>
+            <if test="noticeContent != null and noticeContent != ''">noticeContent = #{noticeContent},</if>
+            <if test="noticeTime != null">noticeTime = #{noticeTime},</if>
+            <if test="noticePublisher != null and noticePublisher != ''">noticePublisher = #{noticePublisher},</if>
+        </trim>
+        where noticeId = #{noticeId}
+    </update>
+
+    <delete id="deleteNoticeByNoticeId" parameterType="Integer">
+        delete
+        from tb_notice
+        where noticeId = #{noticeId}
+    </delete>
+
+    <delete id="deleteNoticeByNoticeIds" parameterType="String">
+        delete from tb_notice where noticeId in
+        <foreach item="noticeId" collection="array" open="(" separator="," close=")">
+            #{noticeId}
+        </foreach>
+    </delete>
+</mapper>

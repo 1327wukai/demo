@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.springbootdemo.dao.EmployeeDao">
+
+    <resultMap type="Employee" id="EmployeeResult">
+        <result property="empNo"    column="empNo"    />
+        <result property="deptNo"    column="deptNo"    />
+        <result property="userId"    column="userId"    />
+        <result property="empName"    column="empName"    />
+        <result property="gender"    column="gender"    />
+        <result property="birth"    column="birth"    />
+        <result property="phoneNumber"    column="phoneNumber"    />
+        <result property="address"    column="address"    />
+        <result property="empDept"    column="empDept"    />
+    </resultMap>
+
+    <sql id="selectEmployeeVo">
+        select empNo, deptNo, userId, empName, gender, birth, phoneNumber, address, empDept from tb_employee
+    </sql>
+
+    <select id="selectEmployeeList" parameterType="Employee" resultMap="EmployeeResult">
+        <include refid="selectEmployeeVo"/>
+        <where>
+            <if test="deptNo != null "> and deptNo = #{deptNo}</if>
+            <if test="userId != null "> and userId = #{userId}</if>
+            <if test="empName != null  and empName != ''"> and empName like concat('%', #{empName}, '%')</if>
+            <if test="gender != null "> and gender = #{gender}</if>
+            <if test="birth != null "> and birth = #{birth}</if>
+            <if test="phoneNumber != null "> and phoneNumber = #{phoneNumber}</if>
+            <if test="address != null  and address != ''"> and address = #{address}</if>
+            <if test="empDept != null "> and empDept = #{empDept}</if>
+        </where>
+    </select>
+
+    <select id="selectEmployeeByEmpNo" parameterType="Integer" resultMap="EmployeeResult">
+        <include refid="selectEmployeeVo"/>
+        where empNo = #{empNo}
+    </select>
+
+    <insert id="insertEmployee" parameterType="Employee">
+        insert into tb_employee
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="empNo != null">empNo,</if>
+            <if test="deptNo != null">deptNo,</if>
+            <if test="userId != null">userId,</if>
+            <if test="empName != null and empName != ''">empName,</if>
+            <if test="gender != null">gender,</if>
+            <if test="birth != null">birth,</if>
+            <if test="phoneNumber != null">phoneNumber,</if>
+            <if test="address != null and address != ''">address,</if>
+            <if test="empDept != null">empDept,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="empNo != null">#{empNo},</if>
+            <if test="deptNo != null">#{deptNo},</if>
+            <if test="userId != null">#{userId},</if>
+            <if test="empName != null and empName != ''">#{empName},</if>
+            <if test="gender != null">#{gender},</if>
+            <if test="birth != null">#{birth},</if>
+            <if test="phoneNumber != null">#{phoneNumber},</if>
+            <if test="address != null and address != ''">#{address},</if>
+            <if test="empDept != null">#{empDept},</if>
+        </trim>
+    </insert>
+
+    <update id="updateEmployee" parameterType="Employee">
+        update tb_employee
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="deptNo != null">deptNo = #{deptNo},</if>
+            <if test="userId != null">userId = #{userId},</if>
+            <if test="empName != null and empName != ''">empName = #{empName},</if>
+            <if test="gender != null">gender = #{gender},</if>
+            <if test="birth != null">birth = #{birth},</if>
+            <if test="phoneNumber != null">phoneNumber = #{phoneNumber},</if>
+            <if test="address != null and address != ''">address = #{address},</if>
+            <if test="empDept != null">empDept = #{empDept},</if>
+        </trim>
+        where empNo = #{empNo}
+    </update>
+
+    <delete id="deleteEmployeeByEmpNo" parameterType="Integer">
+        delete from tb_employee where empNo = #{empNo}
+    </delete>
+
+    <delete id="deleteEmployeeByEmpNos" parameterType="String">
+        delete from tb_employee where empNo in
+        <foreach item="empNo" collection="array" open="(" separator="," close=")">
+            #{empno}
+        </foreach>
+    </delete>
+</mapper>

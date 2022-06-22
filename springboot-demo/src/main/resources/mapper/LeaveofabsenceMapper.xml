@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.springbootdemo.dao.LeaveOfAbsenceDao">
+
+
+    <resultMap type="LeaveOfAbsence" id="LeaveOfAbsenceResult">
+        <result property="leaveId"    column="leaveId"    />
+        <result property="userId"    column="userId"    />
+        <result property="leaveEmpName"    column="leaveEmpName"    />
+        <result property="leaveDeptName"    column="leaveDeptName"    />
+        <result property="leaveDays"    column="leaveDays"    />
+        <result property="leaveTime"    column="leaveTime"    />
+        <result property="leaveCause"    column="leaveCause"    />
+    </resultMap>
+
+    <sql id="selectLeaveOfAbsenceVo">
+        select leaveId, userId, leaveEmpName, leaveDeptName, leaveDays, leaveTime, leaveCause from tb_leaveofabsence
+    </sql>
+
+    <select id="selectLeaveOfAbsenceList" parameterType="LeaveOfAbsence" resultMap="LeaveOfAbsenceResult">
+        <include refid="selectLeaveOfAbsenceVo"/>
+        <where>
+            <if test="userId != null "> and userId = #{userId}</if>
+            <if test="leaveEmpName != null  and leaveEmpName != ''"> and leaveEmpName like concat('%', #{leaveEmpName}, '%')</if>
+            <if test="leaveDeptName != null  and leaveDeptName != ''"> and leaveDeptName like concat('%', #{leaveDeptName}, '%')</if>
+            <if test="leaveDays != null "> and leaveDays = #{leaveDays}</if>
+            <if test="leaveTime != null "> and leaveTime = #{leaveTime}</if>
+            <if test="leaveCause != null  and leaveCause != ''"> and leaveCause = #{leaveCause}</if>
+        </where>
+    </select>
+
+    <select id="selectLeaveOfAbsenceByLeaveId" parameterType="Integer" resultMap="LeaveOfAbsenceResult">
+        <include refid="selectLeaveOfAbsenceVo"/>
+        where leaveId = #{leaveId}
+    </select>
+
+    <insert id="insertLeaveOfAbsence" parameterType="LeaveOfAbsence">
+        insert into tb_leaveofabsence
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="leaveId != null">leaveId,</if>
+            <if test="userId != null">userId,</if>
+            <if test="leaveEmpName != null and leaveEmpName != ''">leaveEmpName,</if>
+            <if test="leaveDeptName != null and leaveDeptName != ''">leaveDeptName,</if>
+            <if test="leaveDays != null">leaveDays,</if>
+            <if test="leaveTime != null">leaveTime,</if>
+            <if test="leaveCause != null and leaveCause != ''">leaveCause,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="leaveId != null">#{leaveId},</if>
+            <if test="userId != null">#{userId},</if>
+            <if test="leaveEmpName != null and leaveEmpName != ''">#{leaveEmpName},</if>
+            <if test="leaveDeptName != null and leaveDeptName != ''">#{leaveDeptName},</if>
+            <if test="leaveDays != null">#{leaveDays},</if>
+            <if test="leaveTime != null">#{leaveTime},</if>
+            <if test="leaveCause != null and leaveCause != ''">#{leaveCause},</if>
+        </trim>
+    </insert>
+
+    <update id="updateLeaveOfAbsence" parameterType="LeaveOfAbsence">
+        update tb_leaveofabsence
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="userId != null">userId = #{userId},</if>
+            <if test="leaveEmpName != null and leaveEmpName != ''">leaveEmpName = #{leaveEmpName},</if>
+            <if test="leaveDeptName != null and leaveDeptName != ''">leaveDeptName = #{leaveDeptName},</if>
+            <if test="leaveDays != null">leaveDays = #{leaveDays},</if>
+            <if test="leaveTime != null">leaveTime = #{leaveTime},</if>
+            <if test="leaveCause != null and leaveCause != ''">leaveCause = #{leaveCause},</if>
+        </trim>
+        where leaveId = #{leaveId}
+    </update>
+
+    <delete id="deleteLeaveOfAbsenceByLeaveId" parameterType="Integer">
+        delete from tb_leaveofabsence where leaveId = #{leaveId}
+    </delete>
+
+    <delete id="deleteLeaveOfAbsenceByLeaveIds" parameterType="String">
+        delete from tb_leaveofabsence where leaveId in
+        <foreach item="leaveId" collection="array" open="(" separator="," close=")">
+            #{leaveId}
+        </foreach>
+    </delete>
+
+</mapper>
