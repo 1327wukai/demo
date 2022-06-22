@@ -18,9 +18,8 @@ public class InfoServiceImp implements InfoService {
     private InfoDao infoDao;
 
     @Override
-    @Transactional(readOnly = true)
-    public List<Info> findOne(String username, String password) {
-        return this.infoDao.findOne(username, password);
+    public Info findOne(String username,String password) {
+        return this.infoDao.findOne(username,password);
     }
 
     @Override

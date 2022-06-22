@@ -3,6 +3,7 @@ package com.example.springbootdemo.controller;
 import com.example.springbootdemo.po.Department;
 import com.example.springbootdemo.serivce.DepartmentService;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -21,6 +22,7 @@ public class DepartmentController {
      * 查询部门列表
      */
     @GetMapping("/deptList")
+    @ApiOperation("所有部门列表")
     public List<Department> deptList() {
         List<Department> list = departmentService.selectDepartmentList(new Department());
         return list;
@@ -30,6 +32,7 @@ public class DepartmentController {
      * id查询部门列表
      */
     @GetMapping("/deptById/{deptNo}")
+    @ApiOperation("id查询部门列表")
     public Department deptById(@PathVariable Integer deptNo) {
         Department department = new Department();
         department.setDeptNo(Integer.valueOf(deptNo));
@@ -40,6 +43,7 @@ public class DepartmentController {
      * 新增部门
      */
     @PostMapping("/addDept")
+    @ApiOperation("新增部门")
     public String addDept(@RequestBody Department department) {
         this.departmentService.insertDepartment(department);
         return "success";
@@ -49,6 +53,7 @@ public class DepartmentController {
      * 修改部门
      */
     @PutMapping("/editDept")
+    @ApiOperation("修改部门")
     public String editDept(@RequestBody Department department) {
         this.departmentService.updateDepartment(department);
         return "success";
@@ -58,6 +63,7 @@ public class DepartmentController {
      * 删除部门
      */
     @DeleteMapping("/deleteDept/{deptNo}")
+    @ApiOperation("按id删除部门")
     public String deleteDept(@PathVariable Integer deptNo) {
         this.departmentService.deleteDepartmentByDeptNo(Integer.valueOf(deptNo));
         return "success";

@@ -3,6 +3,7 @@ package com.example.springbootdemo.controller;
 import com.example.springbootdemo.po.Employee;
 import com.example.springbootdemo.serivce.EmployeeService;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -21,6 +22,7 @@ public class EmployeeController {
      * 查询员工列表
      */
     @GetMapping("/list")
+    @ApiOperation("所有员工列表")
     public List<Employee> list()
     {
         List<Employee> list = employeeService.selectEmployeeList(new Employee());
@@ -32,6 +34,7 @@ public class EmployeeController {
      * 获取员工详细信息
      */
     @GetMapping("/getEmployeeInfo/{empNo}")
+    @ApiOperation("按id获取员工详细信息")
     public Employee getEmployeeInfo(@PathVariable Integer empNo)
     {
         Employee employee = new Employee();
@@ -44,6 +47,7 @@ public class EmployeeController {
      * 新增员工
      */
     @PostMapping("/addEmployee")
+    @ApiOperation("新增员工")
     public String addEmployee(@RequestBody Employee employee)
     {
         this.employeeService.insertEmployee(employee);
@@ -54,6 +58,7 @@ public class EmployeeController {
      * 修改员工
      */
     @PutMapping("/editEmployee")
+    @ApiOperation("修改员工")
     public String editEmployee(@RequestBody Employee employee)
     {
         this.employeeService.updateEmployee(employee);
@@ -64,6 +69,7 @@ public class EmployeeController {
      * 删除员工
      */
     @DeleteMapping("/deleteEmployee/{empNo}")
+    @ApiOperation("删除员工")
     public String delete(@PathVariable Integer empNo)
     {
         this.employeeService.deleteEmployeeByEmpNo(Integer.valueOf(empNo));

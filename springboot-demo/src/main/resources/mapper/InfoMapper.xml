@@ -22,8 +22,17 @@
     </select>
 
     <insert id="addOne" parameterType="Info">
-        insert into tb_info(username, password)
-        values (#{username}, #{password})
+        insert into tb_info
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="userId != null">userId,</if>
+            <if test="username != null and username != ''">username,</if>
+            <if test="password != null and password != ''">password,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="userId != null">#{userId},</if>
+            <if test="username != null and username != ''">#{username},</if>
+            <if test="password != null and password != ''">#{password},</if>
+        </trim>
     </insert>
 
     <select id="checkReg" resultType="Info">

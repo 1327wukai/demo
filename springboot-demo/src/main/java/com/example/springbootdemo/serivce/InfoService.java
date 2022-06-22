@@ -3,6 +3,7 @@ package com.example.springbootdemo.serivce;
 
 
 import com.example.springbootdemo.po.Info;
+import io.swagger.models.auth.In;
 
 import java.util.List;
 
@@ -14,7 +15,7 @@ public interface InfoService {
      * @param username,password
      * @return 登录
      */
-    public List<Info> findOne(String username,String password);
+    public Info findOne(String username,String password);
     /**
      * 用户注册
      *

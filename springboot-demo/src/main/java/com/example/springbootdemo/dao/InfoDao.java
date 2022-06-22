@@ -15,7 +15,7 @@ public interface InfoDao {
      * @param username,password
      * @return 登录
      */
-    public List<Info> findOne(String username,String password);
+    public Info findOne(String username,String password);
     /**
      * 用户注册
      *
