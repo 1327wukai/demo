@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller
+@RestController
 @Api(tags = "员工管理")
 @RequestMapping("/oa/Employee")
 public class EmployeeController {
@@ -21,7 +21,6 @@ public class EmployeeController {
      * 查询员工列表
      */
     @GetMapping("/list")
-    @ResponseBody
     public List<Employee> list()
     {
         List<Employee> list = employeeService.selectEmployeeList(new Employee());
@@ -33,7 +32,6 @@ public class EmployeeController {
      * 获取员工详细信息
      */
     @GetMapping("/getEmployeeInfo/{empNo}")
-    @ResponseBody
     public Employee getEmployeeInfo(@PathVariable Integer empNo)
     {
         Employee employee = new Employee();
@@ -46,7 +44,6 @@ public class EmployeeController {
      * 新增员工
      */
     @PostMapping("/addEmployee")
-    @ResponseBody
     public String addEmployee(@RequestBody Employee employee)
     {
         this.employeeService.insertEmployee(employee);
@@ -57,7 +54,6 @@ public class EmployeeController {
      * 修改员工
      */
     @PutMapping("/editEmployee")
-    @ResponseBody
     public String editEmployee(@RequestBody Employee employee)
     {
         this.employeeService.updateEmployee(employee);
@@ -68,7 +64,6 @@ public class EmployeeController {
      * 删除员工
      */
     @DeleteMapping("/deleteEmployee/{empNo}")
-    @ResponseBody
     public String delete(@PathVariable Integer empNo)
     {
         this.employeeService.deleteEmployeeByEmpNo(Integer.valueOf(empNo));

@@ -17,11 +17,13 @@ public class NoticeServiceImp implements NoticeService {
 
 
     @Override
+    @Transactional(readOnly = true)
     public List<Notice> selectNoticeByNoticeId(Integer noticeId) {
         return this.noticeDao.selectNoticeByNoticeId(noticeId);
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<Notice> selectNoticeList(Notice notice) {
         return this.noticeDao.selectNoticeList(notice);
     }

@@ -16,11 +16,13 @@ public class LeaveOfAbsenceServiceImp implements LeaveOfAbsenceService {
     private LeaveOfAbsenceDao leaveofabsenceDao;
 
     @Override
+    @Transactional(readOnly = true)
     public List<LeaveOfAbsence> selectLeaveOfAbsenceByLeaveId(Integer leaveId) {
         return this.leaveofabsenceDao.selectLeaveOfAbsenceByLeaveId(leaveId);
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<LeaveOfAbsence> selectLeaveOfAbsenceList(LeaveOfAbsence leaveofabsence) {
         return this.leaveofabsenceDao.selectLeaveOfAbsenceList(leaveofabsence);
     }

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller
+@RestController
 @Api(tags = "公告管理")
 @RequestMapping("/oa/Notice")
 public class NoticeController {
@@ -21,7 +21,6 @@ public class NoticeController {
      * 查询公告列表
      */
     @GetMapping("/list")
-    @ResponseBody
     public List<Notice> list() {
         List<Notice> list = noticeService.selectNoticeList(new Notice());
         return list;
@@ -31,7 +30,6 @@ public class NoticeController {
      * 获取公告详细信息
      */
     @GetMapping("/getNoticeInfo/{noticeId}")
-    @ResponseBody
     public Notice getNoticeInfo(@PathVariable Integer noticeId) {
         Notice notice = new Notice();
         notice.setNoticeId(Integer.valueOf(noticeId));
@@ -42,7 +40,6 @@ public class NoticeController {
      * 新增公告
      */
     @PostMapping("/addNotice")
-    @ResponseBody
     public String addNotice(@RequestBody Notice notice) {
         this.noticeService.insertNotice(notice);
         return "success";
@@ -52,7 +49,6 @@ public class NoticeController {
      * 修改公告
      */
     @PutMapping("/editNotice")
-    @ResponseBody
     public String editNotice(@RequestBody Notice notice) {
         this.noticeService.updateNotice(notice);
         return "success";
@@ -62,7 +58,6 @@ public class NoticeController {
      * 删除公告
      */
     @DeleteMapping("/deleteNotice/{noticeId}")
-    @ResponseBody
     public String deleteNotice(@PathVariable Integer noticeId) {
         this.noticeService.deleteNoticeByNoticeId(Integer.valueOf(noticeId));
         return "success";

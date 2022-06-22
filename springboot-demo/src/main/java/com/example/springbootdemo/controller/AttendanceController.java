@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller
+@RestController
 @Api(tags = "考勤管理")
 @RequestMapping("/oa/attendance")
 public class AttendanceController {
@@ -21,7 +21,6 @@ public class AttendanceController {
      * 查询考勤
      */
     @GetMapping("/attendanceList")
-    @ResponseBody
     public List<Attendance> AttendanceList(){
         List<Attendance> list=attendanceService.selectAttendanceList(new Attendance());
         return list;
@@ -30,7 +29,6 @@ public class AttendanceController {
      * 按id查询考勤
      */
     @GetMapping("/attendanceQueryById/{attendEmpNo}")
-    @ResponseBody
     public Attendance attendanceQueryById(@PathVariable Integer attendEmpNo) {
         Attendance attendance = new Attendance();
         attendance.setAttendEmpNo(Integer.valueOf(attendEmpNo));
@@ -41,7 +39,6 @@ public class AttendanceController {
      * 新增考勤
      */
     @PostMapping("/addAttendance")
-    @ResponseBody
     public String addAttendance(@RequestBody Attendance attendance)
     {
         this.attendanceService.insertAttendance(attendance);
@@ -52,7 +49,6 @@ public class AttendanceController {
      * 修改考勤
      */
     @PutMapping("/editAttendance")
-    @ResponseBody
     public String editAttendance(@RequestBody Attendance attendance)
     {
         this.attendanceService.updateAttendance(attendance);
@@ -63,7 +59,6 @@ public class AttendanceController {
      * 删除考勤
      */
     @DeleteMapping("/deleteAttendance{attendEmpNo}")
-    @ResponseBody
     public String deleteAttendance(@PathVariable Integer attendEmpNo)
     {
         this.attendanceService.deleteAttendanceByAttendEmpNo(Integer.valueOf(attendEmpNo));

@@ -19,11 +19,13 @@ public class AttendanceServiceImp implements AttendanceService {
     private AttendanceDao attendanceDao;
 
     @Override
+    @Transactional(readOnly = true)
     public List<Attendance> selectAttendanceByAttendEmpNo(Integer attendEmpNo) {
         return this.attendanceDao.selectAttendanceByAttendEmpNo(attendEmpNo);
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<Attendance> selectAttendanceList(Attendance attendance) {
         return this.attendanceDao.selectAttendanceList(attendance);
     }

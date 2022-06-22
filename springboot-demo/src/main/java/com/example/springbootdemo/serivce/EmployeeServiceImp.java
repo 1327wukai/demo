@@ -17,11 +17,13 @@ public class EmployeeServiceImp implements EmployeeService {
     private EmployeeDao employeeDao;
 
     @Override
+    @Transactional(readOnly = true)
     public List<Employee> selectEmployeeByEmpNo(Integer empNo) {
         return this.employeeDao.selectEmployeeByEmpNo(empNo);
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<Employee> selectEmployeeList(Employee employee) {
         return this.employeeDao.selectEmployeeList(employee);
     }

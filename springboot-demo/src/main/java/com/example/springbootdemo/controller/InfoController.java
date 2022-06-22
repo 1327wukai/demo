@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 
-@Controller
+@RestController
 @Api(tags = "登录")
 @RequestMapping("/oa/Info")
 public class InfoController {
@@ -21,7 +21,6 @@ public class InfoController {
 
     //登录
     @GetMapping("/logon")
-    @ResponseBody
     public Info getInfo(@PathVariable String username, @PathVariable String password) {
         Info info = new Info();
         info.setUsername(username);
@@ -32,7 +31,6 @@ public class InfoController {
 
     //注册
     @PostMapping("/reg")
-    @ResponseBody
     public String regInfo(@RequestBody Info info) {
         this.infoService.addOne(info);
         return "success";
@@ -40,7 +38,6 @@ public class InfoController {
 
     //更新
     @PostMapping("/updateInfo")
-    @ResponseBody
     public String updateInfo(@RequestBody Info info) {
         this.infoService.updateInfo(info);
         return "success";
