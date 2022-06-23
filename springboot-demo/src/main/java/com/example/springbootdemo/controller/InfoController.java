@@ -19,9 +19,9 @@ public class InfoController {
     private InfoService infoService;
 
     //登录
-    @GetMapping("/login")
+    @GetMapping("/login/username={username}&password={password}")
     @ApiOperation("登录")
-    public String login(String username,String password){
+    public String login(@PathVariable String username,@PathVariable String password){
         Info info = new Info();
         info.setUsername(username);
         info.setPassword(password);

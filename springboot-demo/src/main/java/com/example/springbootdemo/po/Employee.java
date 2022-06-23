@@ -13,7 +13,7 @@ public class Employee implements Serializable {
 
     private String empName;
 
-    private Integer gender;
+    private String gender;
 
     private Date birth;
 
@@ -55,11 +55,11 @@ public class Employee implements Serializable {
         this.empName = empName;
     }
 
-    public Integer getGender() {
+    public String getGender() {
         return gender;
     }
 
-    public void setGender(Integer gender) {
+    public void setGender(String gender) {
         this.gender = gender;
     }
 
