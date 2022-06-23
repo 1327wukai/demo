@@ -19,7 +19,7 @@ public class InfoController {
     private InfoService infoService;
 
     //登录
-    @GetMapping("/login/username={username}&password={password}")
+    @GetMapping("/login/{username}&{password}")
     @ApiOperation("登录")
     public String login(@PathVariable String username,@PathVariable String password){
         Info info = new Info();

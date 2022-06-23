@@ -24,11 +24,11 @@ public class SwaggerConfig {
                 // 构建swagger首页的自定义信息
                 .build().apiInfo(new ApiInfoBuilder()
                         .title("SpringBoot整合Swagger")
-                        .description("SpringBoot整合Swagger，详细信息......")
+                        .description("SpringBoot整合Swagger，详细信息")
                         .version("1.0")
-                        .contact(new Contact("xutao", "http://blog.csdn.net", "89247840@qq.com"))
-                        .license("The Apache License")
-                        .licenseUrl("https://www.apache.org/")
+//                        .contact(new Contact("xutao", "http://blog.csdn.net", "89247840@qq.com"))
+//                        .license("The Apache License")
+//                        .licenseUrl("https://www.apache.org/")
                         .build());
     }
 }
