@@ -21,15 +21,15 @@ public class InfoController {
     //登录
     @GetMapping("/login/{username}&{password}")
     @ApiOperation("登录")
-    public Info login(@PathVariable String username,@PathVariable String password){
+    public String login(@PathVariable String username,@PathVariable String password){
         Info info = new Info();
         info.setUsername(username);
         info.setPassword(password);
         Info u = infoService.findOne(username,password);
         if (u != null) {
-            return u;
+            return "success";
         } else {
-            return null;
+            return "error";
         }
     }
 
