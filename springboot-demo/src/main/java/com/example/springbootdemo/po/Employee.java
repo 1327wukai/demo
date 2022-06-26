@@ -17,7 +17,7 @@ public class Employee implements Serializable {
 
     private Date birth;
 
-    private Integer phoneNumber;
+    private String phoneNumber;
 
     private String address;
 
@@ -67,13 +67,9 @@ public class Employee implements Serializable {
         this.birth = birth;
     }
 
-    public Integer getPhoneNumber() {
-        return phoneNumber;
-    }
+    public String getPhoneNumber() { return phoneNumber; }
 
-    public void setPhoneNumber(Integer phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
+    public void setPhoneNumber(String phoneNumber) { this.phoneNumber = phoneNumber; }
 
     public String getAddress() {
         return address;
