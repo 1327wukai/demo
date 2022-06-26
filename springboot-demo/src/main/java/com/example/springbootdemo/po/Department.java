@@ -16,7 +16,7 @@ public class Department implements Serializable {
 
     private String status;
 
-    private Integer deptLeader;
+    private String deptLeader;
 
     public Integer getDeptNo() {
         return deptNo;
@@ -66,11 +66,11 @@ public class Department implements Serializable {
         this.status = status;
     }
 
-    public Integer getDeptLeader() {
+    public String getDeptLeader() {
         return deptLeader;
     }
 
-    public void setDeptLeader(Integer deptLeader) {
+    public void setDeptLeader(String deptLeader) {
         this.deptLeader = deptLeader;
     }
 

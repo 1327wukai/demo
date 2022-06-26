@@ -21,7 +21,7 @@ public class Employee implements Serializable {
 
     private String address;
 
-    private Integer empDept;
+    private String empDept;
 
     public Integer getEmpNo() {
         return empNo;
@@ -55,13 +55,9 @@ public class Employee implements Serializable {
         this.empName = empName;
     }
 
-    public String getGender() {
-        return gender;
-    }
+    public String getGender() { return gender; }
 
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
+    public void setGender(String gender) { this.gender = gender; }
 
     public Date getBirth() {
         return birth;
@@ -87,11 +83,11 @@ public class Employee implements Serializable {
         this.address = address;
     }
 
-    public Integer getEmpDept() {
+    public String getEmpDept() {
         return empDept;
     }
 
-    public void setEmpDept(Integer empDept) {
+    public void setEmpDept(String empDept) {
         this.empDept = empDept;
     }
 
