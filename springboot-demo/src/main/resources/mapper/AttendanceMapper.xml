@@ -5,26 +5,29 @@
 <mapper namespace="com.example.springbootdemo.dao.AttendanceDao">
 
     <resultMap type="Attendance" id="AttendanceResult">
-        <result property="attendEmpNo"    column="attendEmpNo"    />
-        <result property="empNo"    column="empNo"    />
-        <result property="userId"    column="userId"    />
-        <result property="attendEmpName"    column="attendEmpName"    />
-        <result property="checkInTime"    column="checkInTime"    />
-        <result property="checkOutTime"    column="checkOutTime"    />
+        <result property="attendEmpNo" column="attendEmpNo"/>
+        <result property="empNo" column="empNo"/>
+        <result property="userId" column="userId"/>
+        <result property="attendEmpName" column="attendEmpName"/>
+        <result property="checkInTime" column="checkInTime"/>
+        <result property="checkOutTime" column="checkOutTime"/>
     </resultMap>
 
     <sql id="selectAttendanceVo">
-        select attendEmpNo, empNo, userId, attendEmpName, checkInTime, checkOutTime from tb_attendance
+        select attendEmpNo, empNo, userId, attendEmpName, checkInTime, checkOutTime
+        from tb_attendance
     </sql>
 
     <select id="selectAttendanceList" parameterType="Attendance" resultMap="AttendanceResult">
         <include refid="selectAttendanceVo"/>
         <where>
-            <if test="empNo != null "> and empNo = #{empNo}</if>
-            <if test="userId != null "> and userId = #{userId}</if>
-            <if test="attendEmpName != null  and attendEmpName != ''"> and attendEmpName like concat('%', #{attendEmpName}, '%')</if>
-            <if test="checkInTime != null "> and checkInTime = #{checkInTime}</if>
-            <if test="checkOutTime != null "> and checkOutTime = #{checkOutTime}</if>
+            <if test="empNo != null ">and empNo = #{empNo}</if>
+            <if test="userId != null ">and userId = #{userId}</if>
+            <if test="attendEmpName != null  and attendEmpName != ''">and attendEmpName like concat('%',
+                #{attendEmpName}, '%')
+            </if>
+            <if test="checkInTime != null ">and checkInTime = #{checkInTime}</if>
+            <if test="checkOutTime != null ">and checkOutTime = #{checkOutTime}</if>
         </where>
     </select>
 
@@ -52,6 +55,13 @@
             <if test="checkOutTime != null">#{checkOutTime},</if>
         </trim>
     </insert>
+    <!--    prefix:在trim标签内sql语句加上前缀。
+
+    suffix:在trim标签内sql语句加上后缀。
+
+    suffixOverrides:指定去除多余的后缀内容，如：suffixOverrides=","，去除trim标签内sql语句多余的后缀","。
+
+    prefixOverrides:指定去除多余的前缀内容-->
 
     <update id="updateAttendance" parameterType="Attendance">
         update tb_attendance
@@ -66,7 +76,9 @@
     </update>
 
     <delete id="deleteAttendanceByAttendEmpNo" parameterType="Integer">
-        delete from tb_attendance where attendEmpNo = #{attendEmpNo}
+        delete
+        from tb_attendance
+        where attendEmpNo = #{attendEmpNo}
     </delete>
 
     <delete id="deleteAttendanceByAttendEmpNos" parameterType="String">
