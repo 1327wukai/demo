@@ -81,4 +81,15 @@ public class AttendanceController {
         this.attendanceService.deleteAttendanceByAttendEmpNo(Integer.valueOf(attendEmpNo));
         return "success";
     }
+
+    /**
+     * 批量删除考勤
+     */
+    @DeleteMapping("/deleteAttendanceByAttendEmpNos/{attendEmpNo}")
+    @ApiOperation("按id批量删除考勤")
+    public String deleteAttendanceByAttendEmpNos(@PathVariable Integer[] attendEmpNos)
+    {
+       this.attendanceService.deleteAttendanceByAttendEmpNos(attendEmpNos);
+       return "success";
+    }
 }

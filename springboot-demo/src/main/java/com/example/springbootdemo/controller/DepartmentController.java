@@ -76,4 +76,15 @@ public class DepartmentController {
         this.departmentService.deleteDepartmentByDeptNo(Integer.valueOf(deptNo));
         return "success";
     }
+
+    /**
+     * 批量删除部门
+     */
+    @DeleteMapping("/deleteDepartmentByDeptNos/{deptNo}")
+    @ApiOperation("按id批量删除部门")
+    public String deleteDepartmentByDeptNos(@PathVariable Integer[] deptNos) {
+        this.departmentService.deleteDepartmentByDeptNos(deptNos);
+        return "success";
+    }
+
 }

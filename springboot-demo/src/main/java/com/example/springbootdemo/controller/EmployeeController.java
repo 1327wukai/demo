@@ -85,4 +85,15 @@ public class EmployeeController {
         return "success";
     }
 
+    /**
+     * 批量删除员工
+     */
+    @DeleteMapping("/deleteEmployeeByEmpNos/{empNo}")
+    @ApiOperation("删除员工")
+    public String deleteEmployeeByEmpNos(@PathVariable Integer[] empNos)
+    {
+        this.employeeService.deleteEmployeeByEmpNos(empNos);
+        return "success";
+    }
+
 }

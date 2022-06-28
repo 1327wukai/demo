@@ -81,4 +81,15 @@ public class LeaveOfAbsenceController {
         this.leaveOfAbsenceService.deleteLeaveOfAbsenceByLeaveId(Integer.valueOf(leaveId));
         return "success";
     }
+
+    /**
+     * 批量删除请假
+     */
+    @DeleteMapping("/deleteLeaveOfAbsenceByLeaveIds/{leaveId}")
+    @ApiOperation("按id批量删除请假")
+    public String deleteLeaveOfAbsenceByLeaveIds(@PathVariable Integer[] leaveIds) {
+        this.leaveOfAbsenceService.deleteLeaveOfAbsenceByLeaveIds(leaveIds);
+        return "success";
+    }
+
 }

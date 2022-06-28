@@ -49,4 +49,8 @@ public class LeaveOfAbsenceServiceImp implements LeaveOfAbsenceService {
         this.leaveofabsenceDao.deleteLeaveOfAbsenceByLeaveId(leaveId);
     }
 
+    @Override
+    public void deleteLeaveOfAbsenceByLeaveIds(Integer[] leaveIds) {
+        this.leaveofabsenceDao.deleteLeaveOfAbsenceByLeaveIds(leaveIds);
+    }
 }

@@ -53,4 +53,11 @@ public interface LeaveOfAbsenceService {
      * @return 结果
      */
     public void deleteLeaveOfAbsenceByLeaveId(Integer leaveId);
+    /**
+     * 批量删除请假
+     *
+     * @param leaveIds 请假主键
+     * @return 结果
+     */
+    public void deleteLeaveOfAbsenceByLeaveIds(Integer[] leaveIds);
 }

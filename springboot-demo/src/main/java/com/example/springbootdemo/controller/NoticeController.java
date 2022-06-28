@@ -79,4 +79,14 @@ public class NoticeController {
         this.noticeService.deleteNoticeByNoticeId(Integer.valueOf(noticeId));
         return "success";
     }
+
+    /**
+     * 批量删除公告
+     */
+    @DeleteMapping("/deleteNoticeByNoticeIds/{noticeId}")
+    @ApiOperation("批量删除公告")
+    public String deleteNoticeByNoticeIds(@PathVariable Integer[] noticeIds) {
+        this.noticeService.deleteNoticeByNoticeIds(noticeIds);
+        return "success";
+    }
 }
