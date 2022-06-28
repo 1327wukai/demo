@@ -2,8 +2,6 @@ package com.example.springbootdemo.serivce;
 
 import com.example.springbootdemo.dao.AttendanceDao;
 import com.example.springbootdemo.po.Attendance;
-import com.example.springbootdemo.po.Department;
-import com.example.springbootdemo.po.Info;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
