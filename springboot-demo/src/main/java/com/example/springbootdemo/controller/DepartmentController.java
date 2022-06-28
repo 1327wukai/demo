@@ -80,7 +80,7 @@ public class DepartmentController {
     /**
      * 批量删除部门
      */
-    @DeleteMapping("/deleteDepartmentByDeptNos/{deptNo}")
+    @DeleteMapping("/deleteDepartmentByDeptNos/{deptNos}")
     @ApiOperation("按id批量删除部门")
     public String deleteDepartmentByDeptNos(@PathVariable Integer[] deptNos) {
         this.departmentService.deleteDepartmentByDeptNos(deptNos);

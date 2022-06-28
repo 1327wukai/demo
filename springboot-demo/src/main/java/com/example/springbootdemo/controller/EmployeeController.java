@@ -30,7 +30,7 @@ public class EmployeeController {
     /**
      * 模糊查询员工列表
      */
-    @GetMapping("/allEmployeeList")
+    @GetMapping("/selectEmployeeLikeList")
     @ApiOperation("模糊查询员工列表")
     public List<Employee> selectEmployeeLikeList()
     {
@@ -88,7 +88,7 @@ public class EmployeeController {
     /**
      * 批量删除员工
      */
-    @DeleteMapping("/deleteEmployeeByEmpNos/{empNo}")
+    @DeleteMapping("/deleteEmployeeByEmpNos/{empNos}")
     @ApiOperation("删除员工")
     public String deleteEmployeeByEmpNos(@PathVariable Integer[] empNos)
     {

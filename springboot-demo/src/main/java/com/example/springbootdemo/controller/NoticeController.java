@@ -83,7 +83,7 @@ public class NoticeController {
     /**
      * 批量删除公告
      */
-    @DeleteMapping("/deleteNoticeByNoticeIds/{noticeId}")
+    @DeleteMapping("/deleteNoticeByNoticeIds/{noticeIds}")
     @ApiOperation("批量删除公告")
     public String deleteNoticeByNoticeIds(@PathVariable Integer[] noticeIds) {
         this.noticeService.deleteNoticeByNoticeIds(noticeIds);

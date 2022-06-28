@@ -85,7 +85,7 @@ public class AttendanceController {
     /**
      * 批量删除考勤
      */
-    @DeleteMapping("/deleteAttendanceByAttendEmpNos/{attendEmpNo}")
+    @DeleteMapping("/deleteAttendanceByAttendEmpNos/{attendEmpNos}")
     @ApiOperation("按id批量删除考勤")
     public String deleteAttendanceByAttendEmpNos(@PathVariable Integer[] attendEmpNos)
     {
