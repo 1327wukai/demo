@@ -24,8 +24,14 @@ public class EmployeeServiceImp implements EmployeeService {
 
     @Override
     @Transactional(readOnly = true)
-    public List<Employee> selectEmployeeList(Employee employee) {
-        return this.employeeDao.selectEmployeeList(employee);
+    public List<Employee> selectAllEmployee(Employee employee) {
+        return this.employeeDao.selectAllEmployee(employee);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<Employee> selectEmployeeLikeList(Employee employee) {
+        return this.employeeDao.selectEmployeeLikeList(employee);
     }
 
     @Override

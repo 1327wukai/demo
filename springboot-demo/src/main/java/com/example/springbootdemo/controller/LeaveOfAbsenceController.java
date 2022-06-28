@@ -22,13 +22,25 @@ public class LeaveOfAbsenceController {
      */
     @GetMapping("/allLeaveOfAbsenceList")
     @ApiOperation("所有请假列表")
-    public List<LeaveOfAbsence> selectLeaveOfAbsenceList() {
-        List<LeaveOfAbsence> list = leaveOfAbsenceService.selectLeaveOfAbsenceList(new LeaveOfAbsence());
+    public List<LeaveOfAbsence> selectAllLeaveOfAbsence() {
+        List<LeaveOfAbsence> list = leaveOfAbsenceService.selectAllLeaveOfAbsence(new LeaveOfAbsence());
         return list;
     }
 
+
     /**
-     * 获取请假详细信息
+     * 模糊查询请假列表
+     */
+    @GetMapping("/selectLeaveOfAbsenceLikeList")
+    @ApiOperation("模糊查询请假列表")
+    public List<LeaveOfAbsence> selectLeaveOfAbsenceLikeList() {
+        List<LeaveOfAbsence> list = leaveOfAbsenceService.selectLeaveOfAbsenceLikeList(new LeaveOfAbsence());
+        return list;
+    }
+
+
+    /**
+     * 按id获取请假详细信息
      */
 
     @GetMapping("/selectLeaveOfAbsenceByLeaveId/{leaveId}")

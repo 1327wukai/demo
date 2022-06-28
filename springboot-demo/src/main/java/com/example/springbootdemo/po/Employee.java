@@ -21,8 +21,6 @@ public class Employee implements Serializable {
 
     private String address;
 
-    private String empDept;
-
     public Integer getEmpNo() {
         return empNo;
     }
@@ -79,13 +77,6 @@ public class Employee implements Serializable {
         this.address = address;
     }
 
-    public String getEmpDept() {
-        return empDept;
-    }
-
-    public void setEmpDept(String empDept) {
-        this.empDept = empDept;
-    }
 
     @Override
     public String toString() {
@@ -94,11 +85,10 @@ public class Employee implements Serializable {
                 ", deptNo=" + deptNo +
                 ", userId=" + userId +
                 ", empName='" + empName + '\'' +
-                ", gender=" + gender +
+                ", gender='" + gender + '\'' +
                 ", birth=" + birth +
-                ", phoneNumber=" + phoneNumber +
+                ", phoneNumber='" + phoneNumber + '\'' +
                 ", address='" + address + '\'' +
-                ", empDept=" + empDept +
                 '}';
     }
 }

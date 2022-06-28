@@ -14,12 +14,20 @@ public interface NoticeService {
     public List<Notice> selectNoticeByNoticeId(Integer noticeId);
 
     /**
+     * 查询所有公告
+     *
+     * @param notice 公告
+     * @return 公告集合
+     */
+    public List<Notice> selectAllNotice(Notice notice);
+
+    /**
      * 查询公告列表
      *
      * @param notice 公告
      * @return 公告集合
      */
-    public List<Notice> selectNoticeList(Notice notice);
+    public List<Notice> selectNoticeLikeList(Notice notice);
 
     /**
      * 新增公告

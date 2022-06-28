@@ -31,14 +31,16 @@
         from tb_attendance
     </select>
 
-    <select id="selectAttendanceList" parameterType="Attendance" resultMap="AttendanceResult">
+
+    <!--迷糊查询-->
+    <select id="selectAttendanceLikeList" parameterType="Attendance" resultMap="AttendanceResult">
         <include refid="selectAttendanceVo"/>
         <where>
-            <if test="empNo != null ">and empNo = #{empNo}</if>
-            <if test="userId != null ">and userId = #{userId}</if>
-            <if test="attendEmpName != null  and attendEmpName != ''">and attendEmpName = #{attendEmpName}</if>
-            <if test="checkInTime != null ">and checkInTime = #{checkInTime}</if>
-            <if test="checkOutTime != null ">and checkOutTime = #{checkOutTime}</if>
+            <if test="empNo != null "> and empNo = #{empNo}</if>
+            <if test="userId != null "> and userId = #{userId}</if>
+            <if test="attendEmpName != null  and attendEmpName != ''"> and attendEmpName like concat('%', #{attendEmpName}, '%')</if>
+            <if test="checkInTime != null "> and checkInTime = #{checkInTime}</if>
+            <if test="checkOutTime != null "> and checkOutTime = #{checkOutTime}</if>
         </where>
     </select>
 

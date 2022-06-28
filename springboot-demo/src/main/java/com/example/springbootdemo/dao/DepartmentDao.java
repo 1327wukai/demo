@@ -16,13 +16,20 @@ public interface DepartmentDao {
     public List<Department> selectDepartmentByDeptNo(Integer deptNo);
 
     /**
-     * 查询部门列表
+     * 查询所有部门列表
      *
      * @param department 部门
      * @return 部门集合
      */
-    public List<Department> selectDepartmentList(Department department);
+    public List<Department> selectAllDepartment(Department department);
 
+    /**
+     * 模糊查询部门列表
+     *
+     * @param department 部门
+     * @return 部门集合
+     */
+    public List<Department> selectDepartmentLikeList(Department department);
     /**
      * 新增部门
      *

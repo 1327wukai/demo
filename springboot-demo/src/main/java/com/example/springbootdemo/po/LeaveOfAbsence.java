@@ -19,6 +19,8 @@ public class LeaveOfAbsence implements Serializable {
 
     private String leaveCause;
 
+    private String leaveState;
+
     public Integer getLeaveId() {
         return leaveId;
     }
@@ -75,9 +77,17 @@ public class LeaveOfAbsence implements Serializable {
         this.leaveCause = leaveCause;
     }
 
+    public String getLeaveState() {
+        return leaveState;
+    }
+
+    public void setLeaveState(String leaveState) {
+        this.leaveState = leaveState;
+    }
+
     @Override
     public String toString() {
-        return "Leaveofabsence{" +
+        return "LeaveOfAbsence{" +
                 "leaveId=" + leaveId +
                 ", userId=" + userId +
                 ", leaveEmpName='" + leaveEmpName + '\'' +
@@ -85,6 +95,7 @@ public class LeaveOfAbsence implements Serializable {
                 ", leaveDays=" + leaveDays +
                 ", leaveTime=" + leaveTime +
                 ", leaveCause='" + leaveCause + '\'' +
+                ", leaveState='" + leaveState + '\'' +
                 '}';
     }
 }

@@ -20,7 +20,38 @@
         select *from tb_info
     </select>
 
-    <select id="selectInfoList" parameterType="Info" resultMap="InfoResult">
+    <select id="findOne" parameterType="Info" resultMap="Info">
+        SELECT *
+        FROM tb_info
+        where username = #{username}
+          and password = #{password}
+    </select>
+
+    <update id="updateInfo" parameterType="Info">
+        update tb_info
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="username != null and username != ''">username = #{username},</if>
+            <if test="password != null and password != ''">password = #{password},</if>
+        </trim>
+        where userId = #{userId}
+    </update>
+
+    <insert id="addOne" parameterType="Info">
+        insert into tb_info
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="userId != null">userId,</if>
+            <if test="username != null and username != ''">username,</if>
+            <if test="password != null and password != ''">password,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="userId != null">#{userId},</if>
+            <if test="username != null and username != ''">#{username},</if>
+            <if test="password != null and password != ''">#{password},</if>
+        </trim>
+    </insert>
+
+    <!--迷糊查询-->
+    <select id="selectInfoLikeList" parameterType="Info" resultMap="InfoResult">
         <include refid="selectInfoVo"/>
         <where>
             <if test="username != null  and username != ''"> and username = #{username}</if>

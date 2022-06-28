@@ -22,12 +22,21 @@ public class EmployeeController {
      */
     @GetMapping("/allEmployeeList")
     @ApiOperation("所有员工列表")
-    public List<Employee> selectEmployeeList()
+    public List<Employee> selectAllEmployee()
     {
-        List<Employee> list = employeeService.selectEmployeeList(new Employee());
+        List<Employee> list = employeeService.selectAllEmployee(new Employee());
         return list;
     }
-
+    /**
+     * 模糊查询员工列表
+     */
+    @GetMapping("/allEmployeeList")
+    @ApiOperation("模糊查询员工列表")
+    public List<Employee> selectEmployeeLikeList()
+    {
+        List<Employee> list = employeeService.selectEmployeeLikeList(new Employee());
+        return list;
+    }
 
     /**
      * 获取员工详细信息

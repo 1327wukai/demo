@@ -22,11 +22,20 @@ public class DepartmentController {
      */
     @GetMapping("/allDepartmentList")
     @ApiOperation("所有部门列表")
-    public List<Department> selectDepartmentList() {
-        List<Department> list = departmentService.selectDepartmentList(new Department());
+    public List<Department> selectAllDepartment() {
+        List<Department> list = departmentService.selectAllDepartment(new Department());
         return list;
     }
 
+    /**
+     * 模糊查询部门
+     */
+    @GetMapping("/selectDepartmentLikeList")
+    @ApiOperation("模糊查询部门列表")
+    public List<Department> selectDepartmentLikeList() {
+        List<Department> list = departmentService.selectDepartmentLikeList(new Department());
+        return list;
+    }
     /**
      * id查询部门列表
      */

@@ -24,10 +24,15 @@ public class AttendanceServiceImp implements AttendanceService {
 
     @Override
     @Transactional(readOnly = true)
-    public List<Attendance> selectAttendanceList(Attendance attendance) {
-        return this.attendanceDao.selectAttendanceList(attendance);
+    public List<Attendance> selectAllAttendance(Attendance attendance) {
+        return this.attendanceDao.selectAllAttendance(attendance);
     }
 
+    @Override
+    @Transactional(readOnly = true)
+    public List<Attendance> selectAttendanceLikeList(Attendance attendance) {
+        return this.attendanceDao.selectAttendanceLikeList(attendance);
+    }
     @Override
     public void insertAttendance(Attendance attendance) {
         this.attendanceDao.insertAttendance(attendance);

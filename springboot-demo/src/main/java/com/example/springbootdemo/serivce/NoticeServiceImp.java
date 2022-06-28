@@ -24,9 +24,16 @@ public class NoticeServiceImp implements NoticeService {
 
     @Override
     @Transactional(readOnly = true)
-    public List<Notice> selectNoticeList(Notice notice) {
-        return this.noticeDao.selectNoticeList(notice);
+    public List<Notice> selectAllNotice(Notice notice) {
+        return this.noticeDao.selectAllNotice(notice);
     }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<Notice> selectNoticeLikeList(Notice notice) {
+        return this.noticeDao.selectNoticeLikeList(notice);
+    }
+
 
     @Override
     public void insertNotice(Notice notice) {

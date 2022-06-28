@@ -23,9 +23,16 @@ public class LeaveOfAbsenceServiceImp implements LeaveOfAbsenceService {
 
     @Override
     @Transactional(readOnly = true)
-    public List<LeaveOfAbsence> selectLeaveOfAbsenceList(LeaveOfAbsence leaveofabsence) {
-        return this.leaveofabsenceDao.selectLeaveOfAbsenceList(leaveofabsence);
+    public List<LeaveOfAbsence> selectAllLeaveOfAbsence(LeaveOfAbsence leaveofabsence) {
+        return this.leaveofabsenceDao.selectAllLeaveOfAbsence(leaveofabsence);
     }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<LeaveOfAbsence> selectLeaveOfAbsenceLikeList(LeaveOfAbsence leaveofabsence) {
+        return this.leaveofabsenceDao.selectLeaveOfAbsenceLikeList(leaveofabsence);
+    }
+
 
     @Override
     public void insertLeaveOfAbsence(LeaveOfAbsence leaveofabsence) {

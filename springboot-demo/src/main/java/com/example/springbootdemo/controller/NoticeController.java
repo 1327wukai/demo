@@ -18,14 +18,25 @@ public class NoticeController {
     private NoticeService noticeService;
 
     /**
-     * 查询公告列表
+     * 查询所有公告列表
      */
     @GetMapping("/allNoticeList")
     @ApiOperation("所有公告列表")
-    public List<Notice> selectNoticeList() {
-        List<Notice> list = noticeService.selectNoticeList(new Notice());
+    public List<Notice> selectAllNotice() {
+        List<Notice> list = noticeService.selectAllNotice(new Notice());
         return list;
     }
+
+    /**
+     * 模糊查询公告列表
+     */
+    @GetMapping("/selectNoticeLikeList")
+    @ApiOperation("模糊查询公告列表")
+    public List<Notice> selectNoticeLikeList() {
+        List<Notice> list = noticeService.selectNoticeLikeList(new Notice());
+        return list;
+    }
+
 
     /**
      * 获取公告详细信息

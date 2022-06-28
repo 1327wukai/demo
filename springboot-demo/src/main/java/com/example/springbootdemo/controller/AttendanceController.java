@@ -22,10 +22,21 @@ public class AttendanceController {
      */
     @GetMapping("/allAttendanceList")
     @ApiOperation("所有考勤信息")
-    public List<Attendance> selectAttendanceList(){
-        List<Attendance> list=attendanceService.selectAttendanceList(new Attendance());
+    public List<Attendance> selectAllAttendance(){
+        List<Attendance> list=attendanceService.selectAllAttendance(new Attendance());
         return list;
     }
+
+    /**
+     * 模糊查询考勤
+     */
+    @GetMapping("/selectAttendanceLikeList")
+    @ApiOperation("模糊查询考勤信息")
+    public List<Attendance> selectAttendanceLikeList(){
+        List<Attendance> list=attendanceService.selectAttendanceLikeList(new Attendance());
+        return list;
+    }
+
     /**
      * 按id查询考勤
      */
@@ -37,6 +48,7 @@ public class AttendanceController {
         List<Attendance> list = this.attendanceService.selectAttendanceByAttendEmpNo(attendEmpNo);
         return list.get(0);
     }
+
     /**
      * 新增考勤
      */

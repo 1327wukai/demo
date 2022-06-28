@@ -26,8 +26,14 @@ public class DepartmentServiceImp implements DepartmentService{
 
     @Override
     @Transactional(readOnly = true)
-    public List<Department> selectDepartmentList(Department department) {
-        return this.departmentDao.selectDepartmentList(department);
+    public List<Department> selectAllDepartment(Department department) {
+        return this.departmentDao.selectAllDepartment(department);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<Department> selectDepartmentLikeList(Department department) {
+        return this.departmentDao.selectDepartmentLikeList(department);
     }
 
     @Override

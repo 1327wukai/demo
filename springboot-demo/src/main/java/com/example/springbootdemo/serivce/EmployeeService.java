@@ -14,12 +14,20 @@ public interface EmployeeService {
     public List<Employee> selectEmployeeByEmpNo(Integer empNo);
 
     /**
-     * 查询员工列表
+     * 查询所有员工列表
      *
      * @param employee 员工
      * @return 员工集合
      */
-    public List<Employee> selectEmployeeList(Employee employee);
+    public List<Employee> selectAllEmployee(Employee employee);
+
+    /**
+     * 模糊查询员工列表
+     *
+     * @param employee 员工
+     * @return 员工集合
+     */
+    public List<Employee> selectEmployeeLikeList(Employee employee);
 
     /**
      * 新增员工

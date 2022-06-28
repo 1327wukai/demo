@@ -14,12 +14,20 @@ public interface AttendanceService {
     public List<Attendance> selectAttendanceByAttendEmpNo(Integer attendEmpNo);
 
     /**
-     * 查询考勤列表
+     * 查询所有考勤列表
      *
      * @param attendance 考勤
      * @return 考勤集合
      */
-    public List<Attendance> selectAttendanceList(Attendance attendance);
+    public List<Attendance> selectAllAttendance(Attendance attendance);
+
+    /**
+     * 模糊查询考勤列表
+     *
+     * @param attendance 考勤
+     * @return 考勤集合
+     */
+    public List<Attendance> selectAttendanceLikeList(Attendance attendance);
 
     /**
      * 新增考勤

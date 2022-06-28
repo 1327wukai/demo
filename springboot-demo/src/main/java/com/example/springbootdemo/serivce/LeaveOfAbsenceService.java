@@ -14,12 +14,21 @@ public interface LeaveOfAbsenceService {
     public List<LeaveOfAbsence> selectLeaveOfAbsenceByLeaveId(Integer leaveId);
 
     /**
-     * 查询请假列表
+     * 查询所有请假列表
      *
      * @param leaveofabsence 请假
      * @return 请假集合
      */
-    public List<LeaveOfAbsence> selectLeaveOfAbsenceList(LeaveOfAbsence leaveofabsence);
+    public List<LeaveOfAbsence> selectAllLeaveOfAbsence(LeaveOfAbsence leaveofabsence);
+
+
+    /**
+     * 查询请假列表
+     *
+     * @param leaveOfAbsence 请假
+     * @return 请假集合
+     */
+    public List<LeaveOfAbsence> selectLeaveOfAbsenceLikeList(LeaveOfAbsence leaveOfAbsence);
 
     /**
      * 新增请假

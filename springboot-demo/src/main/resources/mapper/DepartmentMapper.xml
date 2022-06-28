@@ -25,7 +25,8 @@
         from tb_department
     </select>
 
-    <select id="selectDepartmentList" parameterType="Department" resultMap="DepartmentResult">
+    <!--迷糊查询-->
+    <select id="selectDepartmentLikeList" parameterType="Department" resultMap="DepartmentResult">
         <include refid="selectDepartmentVo"/>
         <where>
             <if test="userId != null ">and userId = #{userId}</if>

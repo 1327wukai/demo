@@ -34,17 +34,17 @@
         from tb_leaveofabsence
     </select>
 
-
-    <select id="selectLeaveOfAbsenceList" parameterType="LeaveOfAbsence" resultMap="LeaveOfAbsenceResult">
+<!--迷糊查询-->
+    <select id="selectLeaveOfAbsenceLikeList" parameterType="LeaveOfAbsence" resultMap="LeaveOfAbsenceResult">
         <include refid="selectLeaveOfAbsenceVo"/>
         <where>
-            <if test="userId != null ">and userId = #{userId}</if>
-            <if test="leaveEmpName != null  and leaveEmpName != ''">and leaveEmpName = #{leaveEmpName}</if>
-            <if test="leaveDeptName != null  and leaveDeptName != ''">and leaveDeptName = #{leaveDeptName}</if>
-            <if test="leaveDays != null ">and leaveDays = #{leaveDays}</if>
-            <if test="leaveTime != null ">and leaveTime = #{leaveTime}</if>
-            <if test="leaveCause != null  and leaveCause != ''">and leaveCause = #{leaveCause}</if>
-            <if test="leaveState != null  and leaveState != ''">and leaveState = #{leaveState}</if>
+            <if test="userId != null "> and userId = #{userId}</if>
+            <if test="leaveEmpName != null  and leaveEmpName != ''"> and leaveEmpName like concat('%', #{leaveEmpName}, '%')</if>
+            <if test="leaveDeptName != null  and leaveDeptName != ''"> and leaveDeptName like concat('%', #{leaveDeptName}, '%')</if>
+            <if test="leaveDays != null "> and leaveDays = #{leaveDays}</if>
+            <if test="leaveTime != null "> and leaveTime = #{leaveTime}</if>
+            <if test="leaveCause != null  and leaveCause != ''"> and leaveCause like concat('%', #{leaveCause}, '%')</if>
+            <if test="leaveState != null  and leaveState != ''"> and leaveState = #{leaveState}</if>
         </where>
     </select>
 
