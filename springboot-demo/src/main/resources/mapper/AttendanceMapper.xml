@@ -14,12 +14,9 @@
     </resultMap>
 
     <!--    prefix:在trim标签内sql语句加上前缀。
-
       suffix:在trim标签内sql语句加上后缀。
-
       suffixOverrides:指定去除多余的后缀内容，如：suffixOverrides=","，去除trim标签内sql语句多余的后缀","。
-
-      prefixOverrides:指定去除多余的前缀内容-->
+      prefixOverrides:指定去除多余的前缀内容 -->
 
     <sql id="selectAttendanceVo">
         select attendEmpNo, empNo, userId, attendEmpName, checkInTime, checkOutTime

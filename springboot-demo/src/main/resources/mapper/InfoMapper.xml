@@ -20,7 +20,7 @@
 <!--        select *from tb_info-->
 <!--    </select>-->
 
-    <select id="findOne" parameterType="Info" resultMap="Info">
+    <select id="findOne" parameterType="Info" resultMap="InfoResult">
         SELECT *
         FROM tb_info
         where username = #{username}
@@ -42,11 +42,13 @@
             <if test="userId != null">userId,</if>
             <if test="username != null and username != ''">username,</if>
             <if test="password != null and password != ''">password,</if>
+            <if test="permission != null and permission != ''">permission,</if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="userId != null">#{userId},</if>
             <if test="username != null and username != ''">#{username},</if>
             <if test="password != null and password != ''">#{password},</if>
+            <if test="permission != null and permission != ''">permission,</if>
         </trim>
     </insert>
 
