@@ -13,10 +13,17 @@
         <result property="noticePublisher" column="noticePublisher"/>
     </resultMap>
 
+
     <sql id="selectNoticeVo">
         select noticeId, userId, noticeTopic, noticeContent, noticeTime, noticePublisher
         from tb_notice
     </sql>
+
+
+    <select id="selectAllNotice" parameterType="Notice" resultMap="NoticeResult">
+        select *
+        from tb_notice
+    </select>
 
     <select id="selectNoticeList" parameterType="Notice" resultMap="NoticeResult">
         <include refid="selectNoticeVo"/>
@@ -34,10 +41,9 @@
         where noticeId = #{noticeId}
     </select>
 
-    <insert id="insertNotice" parameterType="Notice">
+    <insert id="insertNotice" parameterType="Notice" useGeneratedKeys="true" keyProperty="noticeId">
         insert into tb_notice
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="noticeId != null">noticeId,</if>
             <if test="userId != null">userId,</if>
             <if test="noticeTopic != null and noticeTopic != ''">noticeTopic,</if>
             <if test="noticeContent != null and noticeContent != ''">noticeContent,</if>
@@ -45,7 +51,6 @@
             <if test="noticePublisher != null and noticePublisher != ''">noticePublisher,</if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="noticeId != null">#{noticeId},</if>
             <if test="userId != null">#{userId},</if>
             <if test="noticeTopic != null and noticeTopic != ''">#{noticeTopic},</if>
             <if test="noticeContent != null and noticeContent != ''">#{noticeContent},</if>

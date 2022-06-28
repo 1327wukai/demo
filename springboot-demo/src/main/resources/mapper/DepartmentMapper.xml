@@ -5,28 +5,35 @@
 <mapper namespace="com.example.springbootdemo.dao.DepartmentDao">
 
     <resultMap type="Department" id="DepartmentResult">
-        <result property="deptNo"    column="deptNo"    />
-        <result property="userId"    column="userId"    />
-        <result property="deptName"    column="deptName"    />
-        <result property="deptRemark"    column="deptRemark"    />
-        <result property="deptNum"    column="deptNum"    />
-        <result property="status"    column="status"    />
-        <result property="deptLeader"    column="deptLeader"    />
+        <result property="deptNo" column="deptNo"/>
+        <result property="userId" column="userId"/>
+        <result property="deptName" column="deptName"/>
+        <result property="deptRemark" column="deptRemark"/>
+        <result property="deptNum" column="deptNum"/>
+        <result property="status" column="status"/>
+        <result property="deptLeader" column="deptLeader"/>
     </resultMap>
 
     <sql id="selectDepartmentVo">
-        select deptNo, userId, deptName, deptRemark, deptNum, status, deptLeader from tb_department
+        select deptNo, userId, deptName, deptRemark, deptNum, status, deptLeader
+        from tb_department
     </sql>
+
+
+    <select id="selectAllDepartment" parameterType="Department" resultMap="DepartmentResult">
+        select *
+        from tb_department
+    </select>
 
     <select id="selectDepartmentList" parameterType="Department" resultMap="DepartmentResult">
         <include refid="selectDepartmentVo"/>
         <where>
-            <if test="userId != null "> and userId = #{userId}</if>
-            <if test="deptName != null  and deptName != ''"> and deptName like concat('%', #{deptName}, '%')</if>
-            <if test="deptRemark != null  and deptRemark != ''"> and deptRemark = #{deptRemark}</if>
-            <if test="deptNum != null "> and deptNum = #{deptNum}</if>
-            <if test="status != null  and status != ''"> and status = #{status}</if>
-            <if test="deptLeader != null "> and deptLeader = #{deptLeader}</if>
+            <if test="userId != null ">and userId = #{userId}</if>
+            <if test="deptName != null  and deptName != ''">and deptName = #{deptName}</if>
+            <if test="deptRemark != null  and deptRemark != ''">and deptRemark = #{deptRemark}</if>
+            <if test="deptNum != null ">and deptNum = #{deptNum}</if>
+            <if test="status != null  and status != ''">and status = #{status}</if>
+            <if test="deptLeader != null  and deptLeader != ''">and deptLeader = #{deptLeader}</if>
         </where>
     </select>
 
@@ -35,25 +42,23 @@
         where deptNo = #{deptNo}
     </select>
 
-    <insert id="insertDepartment" parameterType="Department">
+    <insert id="insertDepartment" parameterType="Department" useGeneratedKeys="true" keyProperty="deptNo">
         insert into tb_department
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="deptNo != null">deptNo,</if>
             <if test="userId != null">userId,</if>
             <if test="deptName != null and deptName != ''">deptName,</if>
             <if test="deptRemark != null and deptRemark != ''">deptRemark,</if>
             <if test="deptNum != null">deptNum,</if>
             <if test="status != null and status != ''">status,</if>
-            <if test="deptLeader != null">deptLeader,</if>
+            <if test="deptLeader != null and deptLeader != ''">deptLeader,</if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="deptNo != null">#{deptNo},</if>
             <if test="userId != null">#{userId},</if>
             <if test="deptName != null and deptName != ''">#{deptName},</if>
             <if test="deptRemark != null and deptRemark != ''">#{deptRemark},</if>
             <if test="deptNum != null">#{deptNum},</if>
             <if test="status != null and status != ''">#{status},</if>
-            <if test="deptLeader != null">#{deptLeader},</if>
+            <if test="deptLeader != null and deptLeader != ''">#{deptLeader},</if>
         </trim>
     </insert>
 
@@ -65,13 +70,15 @@
             <if test="deptRemark != null and deptRemark != ''">deptRemark = #{deptRemark},</if>
             <if test="deptNum != null">deptNum = #{deptNum},</if>
             <if test="status != null and status != ''">status = #{status},</if>
-            <if test="deptLeader != null">deptLeader = #{deptLeader},</if>
+            <if test="deptLeader != null and deptLeader != ''">deptLeader = #{deptLeader},</if>
         </trim>
         where deptNo = #{deptNo}
     </update>
 
     <delete id="deleteDepartmentByDeptNo" parameterType="Integer">
-        delete from tb_department where deptNo = #{deptNo}
+        delete
+        from tb_department
+        where deptNo = #{deptNo}
     </delete>
 
     <delete id="deleteDepartmentByDeptNos" parameterType="String">
