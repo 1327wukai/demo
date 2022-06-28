@@ -11,14 +11,14 @@
         <result property="permission"    column="permission"    />
     </resultMap>
 
-    <sql id="selectInfoVo">
-        select userId, username, password, permission from tb_info
-    </sql>
+<!--    <sql id="selectInfoVo">-->
+<!--        select userId, username, password, permission from tb_info-->
+<!--    </sql>-->
 
 
-    <select id="selectAllInfo" parameterType="Info" resultMap="InfoResult">
-        select *from tb_info
-    </select>
+<!--    <select id="selectAllInfo" parameterType="Info" resultMap="InfoResult">-->
+<!--        select *from tb_info-->
+<!--    </select>-->
 
     <select id="findOne" parameterType="Info" resultMap="Info">
         SELECT *
@@ -50,47 +50,47 @@
         </trim>
     </insert>
 
-    <!--迷糊查询-->
-    <select id="selectInfoLikeList" parameterType="Info" resultMap="InfoResult">
-        <include refid="selectInfoVo"/>
-        <where>
-            <if test="username != null  and username != ''"> and username = #{username}</if>
-            <if test="password != null  and password != ''"> and password = #{password}</if>
-            <if test="permission != null  and permission != ''"> and permission = #{permission}</if>
-        </where>
-    </select>
+<!--    &lt;!&ndash;迷糊查询&ndash;&gt;-->
+<!--    <select id="selectInfoLikeList" parameterType="Info" resultMap="InfoResult">-->
+<!--        <include refid="selectInfoVo"/>-->
+<!--        <where>-->
+<!--            <if test="username != null  and username != ''"> and username = #{username}</if>-->
+<!--            <if test="password != null  and password != ''"> and password = #{password}</if>-->
+<!--            <if test="permission != null  and permission != ''"> and permission = #{permission}</if>-->
+<!--        </where>-->
+<!--    </select>-->
 
-    <select id="selectInfoByUserId" parameterType="Integer" resultMap="InfoResult">
-        <include refid="selectInfoVo"/>
-        where userId = #{userId}
-    </select>
+<!--    <select id="selectInfoByUserId" parameterType="Integer" resultMap="InfoResult">-->
+<!--        <include refid="selectInfoVo"/>-->
+<!--        where userId = #{userId}-->
+<!--    </select>-->
 
-    <insert id="insertInfo" parameterType="Info" useGeneratedKeys="true" keyProperty="userId">
-        insert into tb_info
-        <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="username != null and username != ''">username,</if>
-            <if test="password != null and password != ''">password,</if>
-            <if test="permission != null and permission != ''">permission,</if>
-        </trim>
-        <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="username != null and username != ''">#{username},</if>
-            <if test="password != null and password != ''">#{password},</if>
-            <if test="permission != null and permission != ''">#{permission},</if>
-        </trim>
-    </insert>
+<!--    <insert id="insertInfo" parameterType="Info" useGeneratedKeys="true" keyProperty="userId">-->
+<!--        insert into tb_info-->
+<!--        <trim prefix="(" suffix=")" suffixOverrides=",">-->
+<!--            <if test="username != null and username != ''">username,</if>-->
+<!--            <if test="password != null and password != ''">password,</if>-->
+<!--            <if test="permission != null and permission != ''">permission,</if>-->
+<!--        </trim>-->
+<!--        <trim prefix="values (" suffix=")" suffixOverrides=",">-->
+<!--            <if test="username != null and username != ''">#{username},</if>-->
+<!--            <if test="password != null and password != ''">#{password},</if>-->
+<!--            <if test="permission != null and permission != ''">#{permission},</if>-->
+<!--        </trim>-->
+<!--    </insert>-->
 
-    <update id="updateInfo" parameterType="Info">
-        update tb_info
-        <trim prefix="SET" suffixOverrides=",">
-            <if test="username != null and username != ''">username = #{username},</if>
-            <if test="password != null and password != ''">password = #{password},</if>
-            <if test="permission != null and permission != ''">permission = #{permission},</if>
-        </trim>
-        where userId = #{userId}
-    </update>
+<!--    <update id="updateInfo" parameterType="Info">-->
+<!--        update tb_info-->
+<!--        <trim prefix="SET" suffixOverrides=",">-->
+<!--            <if test="username != null and username != ''">username = #{username},</if>-->
+<!--            <if test="password != null and password != ''">password = #{password},</if>-->
+<!--            <if test="permission != null and permission != ''">permission = #{permission},</if>-->
+<!--        </trim>-->
+<!--        where userId = #{userId}-->
+<!--    </update>-->
 
-    <delete id="deleteInfoByUserId" parameterType="Integer">
-        delete from tb_info where userId = #{userId}
-    </delete>
+<!--    <delete id="deleteInfoByUserId" parameterType="Integer">-->
+<!--        delete from tb_info where userId = #{userId}-->
+<!--    </delete>-->
 
 </mapper>

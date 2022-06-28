@@ -22,7 +22,7 @@ public interface NoticeService {
     public List<Notice> selectAllNotice(Notice notice);
 
     /**
-     * 查询公告列表
+     * 模糊查询公告列表
      *
      * @param notice 公告
      * @return 公告集合

@@ -29,7 +29,6 @@ public interface DepartmentService {
      * @return 部门集合
      */
     public List<Department> selectDepartmentLikeList(Department department);
-
     /**
      * 新增部门
      *

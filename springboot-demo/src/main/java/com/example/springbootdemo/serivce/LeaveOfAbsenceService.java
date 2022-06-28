@@ -23,7 +23,7 @@ public interface LeaveOfAbsenceService {
 
 
     /**
-     * 查询请假列表
+     * 模糊查询请假列表
      *
      * @param leaveOfAbsence 请假
      * @return 请假集合
@@ -53,6 +53,7 @@ public interface LeaveOfAbsenceService {
      * @return 结果
      */
     public void deleteLeaveOfAbsenceByLeaveId(Integer leaveId);
+
     /**
      * 批量删除请假
      *
@@ -60,4 +61,5 @@ public interface LeaveOfAbsenceService {
      * @return 结果
      */
     public void deleteLeaveOfAbsenceByLeaveIds(Integer[] leaveIds);
+
 }
