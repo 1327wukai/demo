@@ -16,6 +16,11 @@ public class LeaveOfAbsenceServiceImp implements LeaveOfAbsenceService {
     private LeaveOfAbsenceDao leaveofabsenceDao;
 
 
+    @Override
+    @Transactional(readOnly = true)
+    public Long queryLeaveOfAbsenceCountNo() {
+        return this.leaveofabsenceDao.queryLeaveOfAbsenceCountNo();
+    }
 
     @Override
     @Transactional(readOnly = true)
@@ -34,6 +39,8 @@ public class LeaveOfAbsenceServiceImp implements LeaveOfAbsenceService {
     public List<LeaveOfAbsence> selectLeaveOfAbsenceLikeList(LeaveOfAbsence leaveofabsence) {
         return this.leaveofabsenceDao.selectLeaveOfAbsenceLikeList(leaveofabsence);
     }
+
+
 
     @Override
     @Transactional(readOnly = true)

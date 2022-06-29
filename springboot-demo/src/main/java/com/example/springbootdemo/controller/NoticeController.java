@@ -21,7 +21,7 @@ public class NoticeController {
      * 公告数量
      */
     @GetMapping("/queryNoticeCount")
-    @ApiOperation("请假单数量")
+    @ApiOperation("公告数量")
     public Long queryNoticeCount(){
         long count =this.noticeService.queryNoticeCount();
         return count;

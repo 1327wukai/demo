@@ -7,6 +7,13 @@ import java.util.List;
 public interface LeaveOfAbsenceService {
 
     /**
+     * 未审批请假数量
+     *
+     * @param
+     * @return 请假
+     */
+    public Long queryLeaveOfAbsenceCountNo();
+    /**
      * 查询请假数量
      *
      * @param

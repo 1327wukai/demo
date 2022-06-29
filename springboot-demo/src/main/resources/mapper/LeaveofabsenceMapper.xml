@@ -28,9 +28,16 @@
         from tb_leaveofabsence
     </sql>
 
+    <select id="queryLeaveOfAbsenceCountNo" resultType="Long">
+        select count(*)
+        from tb_leaveofabsence
+        where leaveState = '未通过审批'
+    </select>
+
     <!-- 查询表中总记录数 -->
     <select id="queryLeaveOfAbsenceCount" resultType="Long">
-        select count(*) from tb_leaveofabsence
+        select count(*)
+        from tb_leaveofabsence
     </select>
 
     <select id="selectAllLeaveOfAbsence" parameterType="LeaveOfAbsence" resultMap="LeaveOfAbsenceResult">
@@ -38,17 +45,21 @@
         from tb_leaveofabsence
     </select>
 
-<!--迷糊查询-->
+    <!--迷糊查询-->
     <select id="selectLeaveOfAbsenceLikeList" parameterType="LeaveOfAbsence" resultMap="LeaveOfAbsenceResult">
         <include refid="selectLeaveOfAbsenceVo"/>
         <where>
-            <if test="userId != null "> and userId = #{userId}</if>
-            <if test="leaveEmpName != null  and leaveEmpName != ''"> and leaveEmpName like concat('%', #{leaveEmpName}, '%')</if>
-            <if test="leaveDeptName != null  and leaveDeptName != ''"> and leaveDeptName like concat('%', #{leaveDeptName}, '%')</if>
-            <if test="leaveDays != null "> and leaveDays = #{leaveDays}</if>
-            <if test="leaveTime != null "> and leaveTime = #{leaveTime}</if>
-            <if test="leaveCause != null  and leaveCause != ''"> and leaveCause like concat('%', #{leaveCause}, '%')</if>
-            <if test="leaveState != null  and leaveState != ''"> and leaveState = #{leaveState}</if>
+            <if test="userId != null ">and userId = #{userId}</if>
+            <if test="leaveEmpName != null  and leaveEmpName != ''">and leaveEmpName like concat('%', #{leaveEmpName},
+                '%')
+            </if>
+            <if test="leaveDeptName != null  and leaveDeptName != ''">and leaveDeptName like concat('%',
+                #{leaveDeptName}, '%')
+            </if>
+            <if test="leaveDays != null ">and leaveDays = #{leaveDays}</if>
+            <if test="leaveTime != null ">and leaveTime = #{leaveTime}</if>
+            <if test="leaveCause != null  and leaveCause != ''">and leaveCause like concat('%', #{leaveCause}, '%')</if>
+            <if test="leaveState != null  and leaveState != ''">and leaveState = #{leaveState}</if>
         </where>
     </select>
 
