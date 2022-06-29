@@ -25,6 +25,7 @@
         FROM tb_info
         where username = #{username}
           and password = #{password}
+          and permission = #{permission}
     </select>
 
     <update id="updateInfo" parameterType="Info">
@@ -48,7 +49,7 @@
             <if test="userId != null">#{userId},</if>
             <if test="username != null and username != ''">#{username},</if>
             <if test="password != null and password != ''">#{password},</if>
-            <if test="permission != null and permission != ''">permission,</if>
+            <if test="permission != null and permission != ''">#{permission},</if>
         </trim>
     </insert>
 

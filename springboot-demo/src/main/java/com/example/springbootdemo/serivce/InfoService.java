@@ -12,10 +12,10 @@ public interface InfoService {
     /**
      * 用户登录
      *
-     * @param username,password
+     * @param username,password,permission
      * @return 登录
      */
-    public Info findOne(String username,String password);
+    public Info findOne(String username,String password,Integer permission);
     /**
      * 用户注册
      *

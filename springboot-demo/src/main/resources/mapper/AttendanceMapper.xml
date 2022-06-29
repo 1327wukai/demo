@@ -99,4 +99,5 @@
             #{attendEmpNo}
         </foreach>
     </delete>
+
 </mapper>

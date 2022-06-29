@@ -37,7 +37,7 @@
         select count(*) from tb_employee
     </select>
 
-    <!--迷糊查询-->
+    <!--模糊查询-->
     <select id="selectEmployeeLikeList" parameterType="Employee" resultMap="EmployeeResult">
         <include refid="selectEmployeeVo"/>
         <where>

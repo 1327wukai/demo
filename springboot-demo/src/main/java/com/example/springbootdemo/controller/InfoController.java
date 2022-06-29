@@ -18,13 +18,14 @@ public class InfoController {
     private InfoService infoService;
 
     //登录
-    @GetMapping("/login/{username}&{password}")
+    @GetMapping("/login/{username}&{password}&{permission}")
     @ApiOperation("登录")
-    public String login(@PathVariable String username,@PathVariable String password){
+    public String login(@PathVariable String username,@PathVariable String password,@PathVariable Integer permission){
         Info info = new Info();
         info.setUsername(username);
         info.setPassword(password);
-        Info u = infoService.findOne(username,password);
+        info.setPermission(permission);
+        Info u = infoService.findOne(username,password,permission);
         if (u != null) {
             return "success";
         } else {

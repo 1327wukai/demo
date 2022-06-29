@@ -18,8 +18,8 @@ public class InfoServiceImp implements InfoService {
     private InfoDao infoDao;
 
     @Override
-    public Info findOne(String username,String password) {
-        return this.infoDao.findOne(username,password);
+    public Info findOne(String username,String password,Integer permission) {
+        return this.infoDao.findOne(username,password,permission);
     }
 
     @Override
