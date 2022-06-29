@@ -3,10 +3,13 @@ package com.example.springbootdemo.po;
 import java.io.Serializable;
 
 public class Info implements Serializable {
-
+    //    用户id
     private Integer userId;
+    //    用户名
     private String username;
+    //    密码
     private String password;
+    //    权限 1为管理员 0为普通用户
     private Integer permission;
 
     public Integer getUserId() {

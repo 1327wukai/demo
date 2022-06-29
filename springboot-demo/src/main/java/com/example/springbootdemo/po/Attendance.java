@@ -4,19 +4,19 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class Attendance implements Serializable {
-
+    //考勤id
     private Integer attendEmpNo;
-
+    //所属部门id
     private Integer empNo;
-
+    //用户id
     private Integer userId;
-
+    //姓名
     private String attendEmpName;
-
+    //签到时间
     private Date checkInTime;
-
+    //签退时间
     private Date checkOutTime;
-
+    //状态
     private String checkStatus;
 
     public Integer getAttendEmpNo() {

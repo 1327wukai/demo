@@ -3,19 +3,19 @@ package com.example.springbootdemo.po;
 import java.io.Serializable;
 
 public class Department implements Serializable {
-
+    //部门id
     private Integer deptNo;
-
+    //用户id
     private Integer userId;
-
+    //部门名称
     private String deptName;
-
+    //备注
     private String deptRemark;
-
+    //部门人数
     private Integer deptNum;
-
+    //状态
     private String status;
-
+    //部门领导
     private String deptLeader;
 
     public Integer getDeptNo() {

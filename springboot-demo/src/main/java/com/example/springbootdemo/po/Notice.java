@@ -4,17 +4,17 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class Notice implements Serializable {
-
+    //公告id
     private Integer noticeId;
-
+    //用户id
     private Integer userId;
-
+    //公告标题
     private String noticeTopic;
-
+    //公告内容
     private String noticeContent;
-
+    //公告发布时间
     private Date noticeTime;
-
+    //公告发布人
     private String noticePublisher;
 
     public Integer getNoticeId() {

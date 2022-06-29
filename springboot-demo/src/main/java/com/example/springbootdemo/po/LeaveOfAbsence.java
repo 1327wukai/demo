@@ -4,21 +4,21 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class LeaveOfAbsence implements Serializable {
-
+    //请假单id
     private Integer leaveId;
-
+    //用户id
     private Integer userId;
-
+    //请假人姓名
     private String leaveEmpName;
-
+    //所属部门
     private String leaveDeptName;
-
+    //请假天数
     private Integer leaveDays;
-
+    //请假时间
     private Date leaveTime;
-
+    //请假原由
     private String leaveCause;
-
+    //审批状态
     private String leaveState;
 
     public Integer getLeaveId() {

@@ -5,20 +5,21 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class Employee implements Serializable {
+    //员工id
     private Integer empNo;
-
+    //部门id
     private Integer deptNo;
-
+    //用户id
     private Integer userId;
-
+    //部门名称
     private String empName;
-
+    //性别
     private String gender;
-
+    //生日
     private Date birth;
-
+    //电话
     private String phoneNumber;
-
+    //地址
     private String address;
 
     public Integer getEmpNo() {
@@ -53,9 +54,13 @@ public class Employee implements Serializable {
         this.empName = empName;
     }
 
-    public String getGender() { return gender; }
+    public String getGender() {
+        return gender;
+    }
 
-    public void setGender(String gender) { this.gender = gender; }
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
 
     public Date getBirth() {
         return birth;
@@ -65,9 +70,13 @@ public class Employee implements Serializable {
         this.birth = birth;
     }
 
-    public String getPhoneNumber() { return phoneNumber; }
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
 
-    public void setPhoneNumber(String phoneNumber) { this.phoneNumber = phoneNumber; }
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
 
     public String getAddress() {
         return address;
