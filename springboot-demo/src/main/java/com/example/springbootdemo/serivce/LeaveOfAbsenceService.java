@@ -5,6 +5,15 @@ import com.example.springbootdemo.po.LeaveOfAbsence;
 import java.util.List;
 
 public interface LeaveOfAbsenceService {
+
+    /**
+     * 查询请假数量
+     *
+     * @param
+     * @return 请假
+     */
+    public Long queryLeaveOfAbsenceCount();
+
     /**
      * 查询请假
      *
@@ -25,10 +34,10 @@ public interface LeaveOfAbsenceService {
     /**
      * 模糊查询请假列表
      *
-     * @param leaveOfAbsence 请假
+     * @param leaveofabsence 请假
      * @return 请假集合
      */
-    public List<LeaveOfAbsence> selectLeaveOfAbsenceLikeList(LeaveOfAbsence leaveOfAbsence);
+    public List<LeaveOfAbsence> selectLeaveOfAbsenceLikeList(LeaveOfAbsence leaveofabsence);
 
     /**
      * 新增请假

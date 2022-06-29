@@ -6,6 +6,13 @@ import java.util.List;
 
 public interface EmployeeService {
     /**
+     * 查询员工数量
+     *
+     * @param
+     * @return 员工数
+     */
+    public Long queryEmployeeCount();
+    /**
      * 查询员工
      *
      * @param empNo 员工主键

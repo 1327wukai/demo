@@ -18,6 +18,16 @@ public class EmployeeController {
     private EmployeeService employeeService;
 
     /**
+     * 查询员工数量
+     */
+    @GetMapping("/queryEmployeeCount")
+    @ApiOperation("员工数量")
+    public Long queryEmployeeCount(){
+        long count=this.employeeService.queryEmployeeCount();
+        return count;
+    }
+
+    /**
      * 查询员工列表
      */
     @GetMapping("/allEmployeeList")

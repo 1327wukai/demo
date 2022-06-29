@@ -7,6 +7,7 @@ public class Info implements Serializable {
     private Integer userId;
     private String username;
     private String password;
+    private Integer permission;
 
     public Integer getUserId() {
         return userId;
@@ -32,12 +33,21 @@ public class Info implements Serializable {
         this.password = password;
     }
 
+    public Integer getPermission() {
+        return permission;
+    }
+
+    public void setPermission(Integer permission) {
+        this.permission = permission;
+    }
+
     @Override
     public String toString() {
         return "Info{" +
                 "userId=" + userId +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
+                ", permission='" + permission + '\'' +
                 '}';
     }
 }

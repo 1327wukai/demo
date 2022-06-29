@@ -19,6 +19,10 @@
         from tb_notice
     </sql>
 
+    <!-- 查询表中总记录数 -->
+    <select id="queryNoticeCount" resultType="Long">
+        select count(*) from tb_notice
+    </select>
 
     <select id="selectAllNotice" parameterType="Notice" resultMap="NoticeResult">
         select *

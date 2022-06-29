@@ -23,6 +23,12 @@
         from tb_attendance
     </sql>
 
+
+    <!-- 查询表中总记录数 -->
+    <select id="queryAttendanceCount" resultType="Long">
+        select count(*) from tb_attendance
+    </select>
+
     <select id="selectAllAttendance" parameterType="Attendance" resultMap="AttendanceResult">
         select *
         from tb_attendance

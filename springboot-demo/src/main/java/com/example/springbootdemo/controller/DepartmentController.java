@@ -18,6 +18,16 @@ public class DepartmentController {
     private DepartmentService departmentService;
 
     /**
+     * 查询部门数量
+     */
+    @GetMapping("/queryDepartmentCount")
+    @ApiOperation("部门数量")
+    public Long queryDepartmentCount(){
+        long count=this.departmentService.queryDepartmentCount();
+        return count;
+    }
+
+    /**
      * 查询部门列表
      */
     @GetMapping("/allDepartmentList")

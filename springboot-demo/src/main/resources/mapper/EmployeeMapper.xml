@@ -32,6 +32,10 @@
         from tb_employee
     </select>
 
+    <!-- 查询表中总记录数 -->
+    <select id="queryEmployeeCount" resultType="Long">
+        select count(*) from tb_employee
+    </select>
 
     <!--迷糊查询-->
     <select id="selectEmployeeLikeList" parameterType="Employee" resultMap="EmployeeResult">

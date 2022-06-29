@@ -18,6 +18,16 @@ public class LeaveOfAbsenceController {
     private LeaveOfAbsenceService leaveOfAbsenceService;
 
     /**
+     * 查询请假数量
+     */
+    @GetMapping("/queryLeaveOfAbsenceCount")
+    @ApiOperation("请假单数量")
+    public Long queryLeaveOfAbsenceCount(){
+        long count=this.leaveOfAbsenceService.queryLeaveOfAbsenceCount();
+        return count;
+    }
+
+    /**
      * 查询请假列表
      */
     @GetMapping("/allLeaveOfAbsenceList")

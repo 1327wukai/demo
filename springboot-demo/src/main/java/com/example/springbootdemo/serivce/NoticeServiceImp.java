@@ -18,6 +18,12 @@ public class NoticeServiceImp implements NoticeService {
 
     @Override
     @Transactional(readOnly = true)
+    public Long queryNoticeCount() {
+        return this.noticeDao.queryNoticeCount();
+    }
+
+    @Override
+    @Transactional(readOnly = true)
     public List<Notice> selectNoticeByNoticeId(Integer noticeId) {
         return this.noticeDao.selectNoticeByNoticeId(noticeId);
     }

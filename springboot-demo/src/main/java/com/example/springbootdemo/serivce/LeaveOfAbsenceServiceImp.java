@@ -15,6 +15,8 @@ public class LeaveOfAbsenceServiceImp implements LeaveOfAbsenceService {
     @Autowired
     private LeaveOfAbsenceDao leaveofabsenceDao;
 
+
+
     @Override
     @Transactional(readOnly = true)
     public List<LeaveOfAbsence> selectLeaveOfAbsenceByLeaveId(Integer leaveId) {
@@ -33,6 +35,11 @@ public class LeaveOfAbsenceServiceImp implements LeaveOfAbsenceService {
         return this.leaveofabsenceDao.selectLeaveOfAbsenceLikeList(leaveofabsence);
     }
 
+    @Override
+    @Transactional(readOnly = true)
+    public Long queryLeaveOfAbsenceCount() {
+        return this.leaveofabsenceDao.queryLeaveOfAbsenceCount();
+    }
 
     @Override
     public void insertLeaveOfAbsence(LeaveOfAbsence leaveofabsence) {

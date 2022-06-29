@@ -52,7 +52,7 @@
         </trim>
     </insert>
 
-<!--    &lt;!&ndash;迷糊查询&ndash;&gt;-->
+<!--    &lt;!&ndash;模糊查询&ndash;&gt;-->
 <!--    <select id="selectInfoLikeList" parameterType="Info" resultMap="InfoResult">-->
 <!--        <include refid="selectInfoVo"/>-->
 <!--        <where>-->

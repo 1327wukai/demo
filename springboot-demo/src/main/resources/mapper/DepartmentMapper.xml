@@ -12,6 +12,9 @@
         <result property="deptNum" column="deptNum"/>
         <result property="status" column="status"/>
         <result property="deptLeader" column="deptLeader"/>
+
+        <!-- 集合属性的映射-->
+        <collection property="Employees" ofType="Employee" resultMap="com.example.springbootdemo.dao.EmployeeDao.EmployeeResult"></collection>
     </resultMap>
 
     <sql id="selectDepartmentVo">
@@ -19,6 +22,10 @@
         from tb_department
     </sql>
 
+    <!-- 查询表中总记录数 -->
+    <select id="queryDepartmentCount" resultType="Long">
+        select count(*) from tb_department
+    </select>
 
     <select id="selectAllDepartment" parameterType="Department" resultMap="DepartmentResult">
         select *

@@ -18,6 +18,12 @@ public class EmployeeServiceImp implements EmployeeService {
 
     @Override
     @Transactional(readOnly = true)
+    public Long queryEmployeeCount() {
+        return this.employeeDao.queryEmployeeCount();
+    }
+
+    @Override
+    @Transactional(readOnly = true)
     public List<Employee> selectEmployeeByEmpNo(Integer empNo) {
         return this.employeeDao.selectEmployeeByEmpNo(empNo);
     }

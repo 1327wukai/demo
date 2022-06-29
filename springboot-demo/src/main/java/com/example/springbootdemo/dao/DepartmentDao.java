@@ -8,6 +8,13 @@ import java.util.List;
 @Mapper
 public interface DepartmentDao {
     /**
+     * 查询部门数量
+     *
+     * @param
+     * @return 部门
+     */
+    public Long queryDepartmentCount();
+    /**
      * 查询部门
      *
      * @param deptNo 部门主键

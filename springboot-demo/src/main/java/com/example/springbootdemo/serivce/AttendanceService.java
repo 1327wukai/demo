@@ -6,6 +6,13 @@ import java.util.List;
 
 public interface AttendanceService {
     /**
+     * 查询考勤数量
+     *
+     * @param
+     * @return 考勤
+     */
+    public Long queryAttendanceCount();
+    /**
      * 查询考勤
      *
      * @param attendEmpNo 考勤主键

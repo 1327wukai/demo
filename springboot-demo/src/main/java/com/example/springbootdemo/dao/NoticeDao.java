@@ -8,6 +8,14 @@ import java.util.List;
 
 @Mapper
 public interface NoticeDao {
+
+    /**
+     * 查询公告数量
+     *
+     * @param
+     * @return 公告
+     */
+    public Long queryNoticeCount();
     /**
      * 查询公告
      *

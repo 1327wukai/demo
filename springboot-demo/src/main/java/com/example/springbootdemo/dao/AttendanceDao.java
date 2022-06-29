@@ -7,7 +7,13 @@ import java.util.List;
 
 @Mapper
 public interface AttendanceDao {
-
+    /**
+     * 查询考勤数量
+     *
+     * @param
+     * @return 考勤
+     */
+    public Long queryAttendanceCount();
     /**
      * 查询考勤
      *

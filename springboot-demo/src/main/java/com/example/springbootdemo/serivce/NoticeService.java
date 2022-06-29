@@ -6,6 +6,13 @@ import java.util.List;
 
 public interface NoticeService {
     /**
+     * 查询公告数量
+     *
+     * @param
+     * @return 公告
+     */
+    public Long queryNoticeCount();
+    /**
      * 查询公告
      *
      * @param noticeId 公告主键

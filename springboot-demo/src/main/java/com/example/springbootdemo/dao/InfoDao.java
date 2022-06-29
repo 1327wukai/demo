@@ -23,6 +23,7 @@ public interface InfoDao {
      * @return 注册
      */
     public void addOne(Info info);
+
     /**
      * 用户更新
      *

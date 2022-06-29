@@ -20,6 +20,12 @@ public class DepartmentServiceImp implements DepartmentService{
 
     @Override
     @Transactional(readOnly = true)
+    public Long queryDepartmentCount() {
+        return this.departmentDao.queryDepartmentCount();
+    }
+
+    @Override
+    @Transactional(readOnly = true)
     public List<Department> selectDepartmentByDeptNo(Integer deptNo) {
         return this.departmentDao.selectDepartmentByDeptNo(deptNo);
     }
