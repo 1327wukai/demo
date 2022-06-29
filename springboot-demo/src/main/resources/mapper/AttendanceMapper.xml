@@ -11,6 +11,7 @@
         <result property="attendEmpName" column="attendEmpName"/>
         <result property="checkInTime" column="checkInTime"/>
         <result property="checkOutTime" column="checkOutTime"/>
+        <result property="checkStatus" column="checkStatus"/>
     </resultMap>
 
     <!--    prefix:在trim标签内sql语句加上前缀。
@@ -19,7 +20,7 @@
       prefixOverrides:指定去除多余的前缀内容 -->
 
     <sql id="selectAttendanceVo">
-        select attendEmpNo, empNo, userId, attendEmpName, checkInTime, checkOutTime
+        select attendEmpNo, empNo, userId, attendEmpName, checkInTime, checkOutTime, checkStatus
         from tb_attendance
     </sql>
 
@@ -44,6 +45,7 @@
             <if test="attendEmpName != null  and attendEmpName != ''"> and attendEmpName like concat('%', #{attendEmpName}, '%')</if>
             <if test="checkInTime != null "> and checkInTime = #{checkInTime}</if>
             <if test="checkOutTime != null "> and checkOutTime = #{checkOutTime}</if>
+            <if test="checkStatus != null "> and checkStatus = #{checkStatus}</if>
         </where>
     </select>
 
@@ -60,6 +62,7 @@
             <if test="attendEmpName != null and attendEmpName != ''">attendEmpName,</if>
             <if test="checkInTime != null">checkInTime,</if>
             <if test="checkOutTime != null">checkOutTime,</if>
+            <if test="checkStatus != null">checkStatus,</if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="empNo != null">#{empNo},</if>
@@ -67,6 +70,7 @@
             <if test="attendEmpName != null and attendEmpName != ''">#{attendEmpName},</if>
             <if test="checkInTime != null">#{checkInTime},</if>
             <if test="checkOutTime != null">#{checkOutTime},</if>
+            <if test="checkStatus != null">#{checkStatus},</if>
         </trim>
     </insert>
 
@@ -78,6 +82,7 @@
             <if test="attendEmpName != null and attendEmpName != ''">attendEmpName = #{attendEmpName},</if>
             <if test="checkInTime != null">checkInTime = #{checkInTime},</if>
             <if test="checkOutTime != null">checkOutTime = #{checkOutTime},</if>
+            <if test="checkStatus != null">checkStatus = #{checkStatus},</if>
         </trim>
         where attendEmpNo = #{attendEmpNo}
     </update>

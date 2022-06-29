@@ -27,6 +27,7 @@ public class AttendanceController {
         long count =this.attendanceService.queryAttendanceCount();
         return count;
     }
+
     /**
      * 查询考勤
      */

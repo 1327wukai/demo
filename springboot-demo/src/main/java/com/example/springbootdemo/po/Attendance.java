@@ -1,7 +1,7 @@
 package com.example.springbootdemo.po;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 
 public class Attendance implements Serializable {
 
@@ -16,6 +16,8 @@ public class Attendance implements Serializable {
     private Date checkInTime;
 
     private Date checkOutTime;
+
+    private String checkStatus;
 
     public Integer getAttendEmpNo() {
         return attendEmpNo;
@@ -65,6 +67,14 @@ public class Attendance implements Serializable {
         this.checkOutTime = checkOutTime;
     }
 
+    public String getCheckStatus() {
+        return checkStatus;
+    }
+
+    public void setCheckStatus(String checkStatus) {
+        this.checkStatus = checkStatus;
+    }
+
     @Override
     public String toString() {
         return "Attendance{" +
@@ -74,6 +84,7 @@ public class Attendance implements Serializable {
                 ", attendEmpName='" + attendEmpName + '\'' +
                 ", checkInTime=" + checkInTime +
                 ", checkOutTime=" + checkOutTime +
+                ", checkStatus='" + checkStatus + '\'' +
                 '}';
     }
 }
