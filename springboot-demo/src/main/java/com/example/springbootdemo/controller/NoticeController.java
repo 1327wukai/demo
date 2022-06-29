@@ -26,7 +26,7 @@ public class NoticeController {
         long count =this.noticeService.queryNoticeCount();
         return count;
     }
-    
+
     /**
      * 查询所有公告列表
      */
