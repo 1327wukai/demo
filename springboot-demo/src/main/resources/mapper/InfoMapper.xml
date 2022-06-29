@@ -25,7 +25,6 @@
         FROM tb_info
         where username = #{username}
           and password = #{password}
-          and permission = #{permission}
     </select>
 
     <update id="updateInfo" parameterType="Info">
