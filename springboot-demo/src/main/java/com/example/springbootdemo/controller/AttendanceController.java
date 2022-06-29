@@ -17,6 +17,15 @@ public class AttendanceController {
     @Autowired
     private AttendanceService attendanceService;
 
+    /**
+     * 查询已签到考勤数量
+     */
+    @GetMapping("/queryAttendanceYes")
+    @ApiOperation("已签到数量")
+    public Long queryAttendanceYes(){
+        long count =this.attendanceService.queryAttendanceYes();
+        return count;
+    }
 
     /**
      * 查询考勤数量

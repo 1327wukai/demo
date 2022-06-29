@@ -27,7 +27,15 @@
 
     <!-- 查询表中总记录数 -->
     <select id="queryAttendanceCount" resultType="Long">
-        select count(*) from tb_attendance
+        select count(*)
+        from tb_attendance
+    </select>
+
+    <!-- 查询表中状态为“是”的个数 -->
+    <select id="queryAttendanceYes" resultType="Long">
+        select count(*)
+        from tb_attendance
+        where checkStatus = '是'
     </select>
 
     <select id="selectAllAttendance" parameterType="Attendance" resultMap="AttendanceResult">
@@ -40,12 +48,14 @@
     <select id="selectAttendanceLikeList" parameterType="Attendance" resultMap="AttendanceResult">
         <include refid="selectAttendanceVo"/>
         <where>
-            <if test="empNo != null "> and empNo = #{empNo}</if>
-            <if test="userId != null "> and userId = #{userId}</if>
-            <if test="attendEmpName != null  and attendEmpName != ''"> and attendEmpName like concat('%', #{attendEmpName}, '%')</if>
-            <if test="checkInTime != null "> and checkInTime = #{checkInTime}</if>
-            <if test="checkOutTime != null "> and checkOutTime = #{checkOutTime}</if>
-            <if test="checkStatus != null "> and checkStatus = #{checkStatus}</if>
+            <if test="empNo != null ">and empNo = #{empNo}</if>
+            <if test="userId != null ">and userId = #{userId}</if>
+            <if test="attendEmpName != null  and attendEmpName != ''">and attendEmpName like concat('%',
+                #{attendEmpName}, '%')
+            </if>
+            <if test="checkInTime != null ">and checkInTime = #{checkInTime}</if>
+            <if test="checkOutTime != null ">and checkOutTime = #{checkOutTime}</if>
+            <if test="checkStatus != null ">and checkStatus = #{checkStatus}</if>
         </where>
     </select>
 

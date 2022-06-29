@@ -14,7 +14,7 @@
         <result property="deptLeader" column="deptLeader"/>
 
         <!-- 集合属性的映射-->
-        <collection property="Employees" ofType="Employee" resultMap="com.example.springbootdemo.dao.EmployeeDao.EmployeeResult"></collection>
+<!--        <collection property="Employees" ofType="Employee" resultMap="com.example.springbootdemo.dao.EmployeeDao.EmployeeResult"></collection>-->
     </resultMap>
 
     <sql id="selectDepartmentVo">

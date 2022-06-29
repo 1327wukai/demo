@@ -16,6 +16,13 @@ public class AttendanceServiceImp implements AttendanceService {
     @Autowired
     private AttendanceDao attendanceDao;
 
+
+    @Override
+    @Transactional(readOnly = true)
+    public Long queryAttendanceYes() {
+        return this.attendanceDao.queryAttendanceYes();
+    }
+
     @Override
     @Transactional(readOnly = true)
     public Long queryAttendanceCount() {

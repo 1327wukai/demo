@@ -9,6 +9,14 @@ import java.util.List;
 public interface AttendanceDao {
 
     /**
+     * 查询已签到考勤数量
+     *
+     * @param
+     * @return 考勤
+     */
+    public Long queryAttendanceYes();
+
+    /**
      * 查询考勤数量
      *
      * @param
