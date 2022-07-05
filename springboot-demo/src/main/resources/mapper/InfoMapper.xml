@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.example.springbootdemo.dao.InfoDao">
+<mapper namespace="com.lianwei.OAsystem.dao.InfoDao">
 
     <resultMap type="Info" id="InfoResult">
         <result property="userId"    column="userId"    />
@@ -20,6 +20,24 @@
 <!--        select *from tb_info-->
 <!--    </select>-->
 
+
+    <select id="findAllUser" parameterType="Info" resultMap="InfoResult">
+        SELECT *
+        FROM tb_info
+    </select>
+
+    <select id="findUserIdByUsername" parameterType="Info" resultMap="InfoResult">
+        SELECT userId
+        FROM tb_info
+        where username = #{username}
+    </select>
+
+    <select id="findUserById" parameterType="Info" resultMap="InfoResult">
+        SELECT *
+        FROM tb_info
+        where userId = #{userId}
+    </select>
+
     <select id="findOne" parameterType="Info" resultMap="InfoResult">
         SELECT *
         FROM tb_info
@@ -32,6 +50,7 @@
         <trim prefix="SET" suffixOverrides=",">
             <if test="username != null and username != ''">username = #{username},</if>
             <if test="password != null and password != ''">password = #{password},</if>
+<!--            <if test="permission != null and permission != ''">permission = #{permission},</if>-->
         </trim>
         where userId = #{userId}
     </update>

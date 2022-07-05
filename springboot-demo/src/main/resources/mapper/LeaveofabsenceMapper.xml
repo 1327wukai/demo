@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.example.springbootdemo.dao.LeaveOfAbsenceDao">
+<mapper namespace="com.lianwei.OAsystem.dao.LeaveOfAbsenceDao">
 
 
     <resultMap type="LeaveOfAbsence" id="LeaveOfAbsenceResult">

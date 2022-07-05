@@ -17,20 +17,21 @@ spring:
   #日期格式设置
   mvc:
     format:
-      date: yyyy-MM-dd
+      date: yyyy-MM-dd HH:mm:ss
     pathmatch:
       matching-strategy: ant_path_matcher
 
   #json日期时间格式
   jackson:
     date-format: yyyy-MM-dd
-
+    # 指定时间区域类型 东8区时区 既北京时间
+    time-zone: GMT+8
 
 
 #整合mybatis依赖
 mybatis:
   #  加载实体类所在的包路径
-  type-aliases-package: com/example/springbootdemo/po
+  type-aliases-package: com/lianwei/OAsystem/po
   #  加载映射文件
   mapper-locations: mapper/*Mapper.xml
   #  把日志输出到控制台
